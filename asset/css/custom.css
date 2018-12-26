@@ -1,0 +1,193 @@
+html,body{
+	height: 100%;
+}
+body{
+	background-color: #eeeeee;
+}
+.bglog{
+	background: #360033;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #0b8793, #013c67);  /* Chrome 10-25, Safari 5.1-6 */
+background-image: linear-gradient( 135deg, #F05F57 10%, #360940 100%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.login-box{
+	height: 583px;
+	margin-right: -14px;
+	margin-left: -14px;
+	background-color: white;
+	padding: 50px 80px;
+}
+.containerx{
+	width: 884px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.bts-ats{
+	margin-top: 14px;
+}
+.bts-bwh{
+	padding-bottom: 14px;
+}
+.bts-bwh2{
+	margin-bottom: 14px;
+}
+.nbbrand{
+	padding: 11px;
+	color: white;
+}
+.nbbg{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0095d6+0,00b29d+100 */
+	background: #0095d6; /* Old browsers */
+	background: -moz-linear-gradient(left, #0095d6 0%, #00b29d 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, #0095d6 0%,#00b29d 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, #0095d6 0%,#00b29d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0095d6', endColorstr='#00b29d',GradientType=1 ); /* IE6-9 */
+}
+.navbox{
+	margin-top: 50px;
+
+}
+.beranda-menu-box{
+	text-align: center;
+	width: 100%;
+	background-color: white;
+	padding: 40px 20px;
+	margin-bottom: 28px;
+}
+.beranda-menu-icon{
+	font-size: 50px;
+	margin-bottom: 20px;
+}
+.navstyle{
+	padding: 14px;
+}
+.netralink{
+	color: #8e8e8e;
+}
+.menulink{
+	padding: 0 10px 0 0;
+    border-radius: 3px;
+    font-size: 13px;
+    border: transparent solid 1px;
+    line-height: 35px;
+    height: 36px;
+}
+.iconmenu{
+	
+    line-height: 35px;
+    display: block;
+    float: left;
+    width: 30px;
+    height: 36px;
+    margin-right: 5px;
+    margin-left: 5px;
+    text-align: center;
+}
+.menulink:hover{
+	border :1px solid #eeeeee;
+}
+.linkmenu{
+    height: auto!important;
+    color: white;
+    padding: 10px 0 10px 10px!important;
+    line-height: 1em!important;
+}
+.linkmenu:hover{
+	background-color: #00679e;
+	cursor: pointer;
+}
+.main-box{
+	padding: 14px;
+}
+.mybgcolor{
+	border: 1px solid #cccccc;
+}
+.pembatas{
+	border-top: 1px solid #cccccc;
+}
+.ktk-jdl{
+	border-bottom :1px solid #eeeeee;
+	padding-bottom: 14px;
+}
+.jrktbl{
+    padding: .7px 0px;
+	font-size: 12px;
+}
+.table td, .table th {
+	padding: 14px 7px;
+    vertical-align: middle;
+    border-top: 1px solid #bdc3c7;
+}
+.bg-app{
+	background-color: #bdc3c7
+}
+.submenu{
+	padding: 7px;
+	border-bottom: 1px solid #eeeeee;
+}
+.submenu:hover{
+	cursor: pointer;
+	color: white;
+	background-color: #1da9f4;
+}
+#footer_bottom {
+background-color: #c0392b;
+padding-top: 13px;
+padding-bottom: 17px;
+margin-top:70px;
+}
+#footer_bottom .copyright {
+text-align: center;
+font-size: 16px;
+color: #81ccff;
+}
+#footer_bottom .copyright a {
+color: #fff;
+font-size: 19px;
+}
+.box {
+ background-image: linear-gradient( 135deg, #F05F57 10%, #360940 100%);   
+}
+h4 {
+	font-family: "Roboto",Helvetica Neue,Arial,Helvetica,sans-serif, cursive;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
+.font1 {
+	font-family: "Roboto", cursive;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.4px;
+}
+h2{
+	font-family: "Roboto",Helvetica Neue,Arial,Helvetica,sans-serif, cursive;
+	font-size: 25px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	color: green;
+	line-height: 20px;
+}
+blockquote {
+	font-family: "Roboto", cursive;
+	font-size: 21px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 30px;
+}
+pre {
+	font-family: "Roboto", cursive;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 18.5714px;
+}
