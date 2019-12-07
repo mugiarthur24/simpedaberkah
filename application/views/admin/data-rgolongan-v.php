@@ -4,11 +4,13 @@
 			<h4>Riwayat Golongan</h4>
 		</div>
 		<div class="media-right">
-			<button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#addrgolongan"><i class="ti ti-plus"></i> Tambah Data Riwayat Golongan</button>
+			<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addrgolongan"><i class="fas fa-plus"></i> Tambah Data Riwayat Golongan</button>
 		</div>
 	</div>
 	<hr/>
-	<table class="w-100" border="1" style="font-size: 13px;">
+	<div class="card-body">
+	<div class="table-responsive">
+		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 		<thead>
 			<tr class="table-info">
 				<td class="p-1 text-center">No</td>
@@ -36,10 +38,10 @@
 						<td class="p-1"><?php echo date('d F Y', strtotime($data->tanggal_bkn)) ; ?></td>
 						<td class="p-1"><?php echo $data->masa_kerja; ?></td>
 						<td class="p-1">
-							<a href="<?php echo base_url('index.php/admin/pegawai/edit_rgolongan/'.$hasil->id_pegawai.'/'.$data->id_riwayat_golongan) ?>"><i class="ti ti-pencil" rel="tooltip" title="Edit"></i></a>
+							<a href="<?php echo base_url('index.php/admin/pegawai/edit_rgolongan/'.$hasil->id_pegawai.'/'.$data->id_riwayat_golongan) ?>">Edit</a>
 						</td>
 						<td class="p-1">
-							<a href="<?php echo base_url('index.php/admin/pegawai/delete_rgolongan/'.$hasil->id_pegawai.'/'.$data->id_riwayat_golongan) ?>" class="text-danger"><i class="ti ti-trash" rel="tooltip" title="Hapus"></i></a>
+							<a href="<?php echo base_url('index.php/admin/pegawai/delete_rgolongan/'.$hasil->id_pegawai.'/'.$data->id_riwayat_golongan) ?>" class="text-danger">Hapus</a>
 						</td>
 					</tr>
 					<?php $no++ ?>
@@ -51,13 +53,15 @@
 			<?php endif ?>
 		</tbody>
 	</table>
+</div>
+</div>
 	<!-- Modal -->
 	<div class="modal fade" id="addrgolongan" tabindex="-1" role="dialog" aria-labelledby="addrgolongan" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="addrgolongan">Tambah Data Riwayat Golongan</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" >
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>

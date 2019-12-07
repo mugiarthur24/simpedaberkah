@@ -4,7 +4,7 @@
 			<h5 class="text-info">Daftar Users</h5><hr/>
 		</div>
 		<div class="media-body"></div>
-		<div class="media-right"><button class="btn btn-outline-success" data-toggle="modal" data-target="#addobat"><i class="ti ti-plus"></i> Tambah User</button></div>
+		<div class="media-right"><button class="btn btn-success" data-toggle="modal" data-target="#addobat"><i class="fas fa-user-plus"> </i> Tambah User</button></div>
 	</div>
 	<table class="w-100" border="1">
 		<tr class="table-info">
@@ -23,8 +23,8 @@
 				<td class="p-1"><?php echo $data->username; ?></td>
 				<td class="p-1"><?php echo $data->email; ?></td>
 				<td class="p-1"></td>
-				<td class="p-1 text-center"><a class="text-info" href="<?php echo base_url('index.php/admin/users/edit/'.$data->id) ?>"><i class="ti ti-pencil text-info"></i></a></td>
-				<td class="p-1 text-center"><a class="text-info" href="<?php echo base_url('index.php/admin/users/delete/'.$data->id) ?>"><i class="ti ti-trash text-danger"></i></a></td>
+				<td class="p-1 text-center"><a class="text-info" href="<?php echo base_url('index.php/admin/users/edit/'.$data->id) ?>">Edit</a></td>
+				<td class="p-1 text-center"><a class="text-danger" href="<?php echo base_url('index.php/admin/users/delete/'.$data->id) ?>">Hapus</a></td>
 			</tr>
 			<?php $no++ ?>
 		<?php endforeach ?>

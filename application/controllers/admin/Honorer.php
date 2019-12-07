@@ -17,6 +17,7 @@ class Honorer extends CI_Controller {
             }else{
                 // echo "<pre/>"; echo ;echo "<pre>";exit();
                 $post = $this->input->get();
+                $data['titelbag'] = 'datadiri';
                 $data['title'] = $this->Admin_m->info_pt(1)->nama_info_pt;
                 $data['infopt'] = $this->Admin_m->info_pt(1);
                 $data['brand'] = 'asset/img/lembaga/'.$this->Admin_m->info_pt(1)->logo_pt;
@@ -52,7 +53,7 @@ class Honorer extends CI_Controller {
                 $config['last_tagl_close']  = '</span></li>';
                 //inisialisasi config
                 $this->pagination->initialize($config);
-                $data['skpd'] = $this->honorer_m->select_data('master_lokasi_kerja');
+                $data['skpd'] = $this->honorer_m->select_data('master_satuan_kerja');
                 $data['status'] = $this->honorer_m->select_data('master_status_pegawai');
                 $data['agama'] = $this->honorer_m->select_data('master_agama');
                 $data['golongan'] = $this->honorer_m->select_data('master_golongan');
@@ -64,6 +65,7 @@ class Honorer extends CI_Controller {
                 $data['nmr'] = $offset;
                 $data['hasil'] = $this->honorer_m->searcing_data($config['per_page'],$offset,@$post['string'],@$post['skpd']);
                 $data['pagging'] = $this->pagination->create_links();
+                
                 // pagging setting
                 $this->load->view('admin/dashboard-v',$data);
             }
@@ -83,6 +85,42 @@ class Honorer extends CI_Controller {
       }
       return $string;
   }
+   public function detail($id){
+        if ($this->ion_auth->logged_in()) {
+            $level = array('admin','members','skpd');
+            if (!$this->ion_auth->in_group($level)) {
+                $pesan = 'Anda tidak memiliki Hak untuk Mengakses halaman ini';
+                $this->session->set_flashdata('message', $pesan );
+                redirect(base_url('index.php/admin/dashboard'));
+            }else{
+                $result = $this->honorer_m->detail_honorer($id);
+                // echo "<pre>";print_r($result);echo "<pre/>";exit();
+                $data['title'] = $result->nama;
+                $data['titelbag'] = 'datadiri';
+                $data['infopt'] = $this->Admin_m->info_pt(1);
+                $data['brand'] = 'asset/img/lembaga/'.$this->Admin_m->info_pt(1)->logo_pt;
+                $data['users'] = $this->ion_auth->user()->row();
+                $data['aside'] = 'nav/nav';
+                $data['hasil'] = $result;
+                $data['detail'] = $result;
+                $data['status'] = $this->honorer_m->select_data('master_status_pegawai');
+                $data['skpd'] = $this->honorer_m->select_data('master_satuan_kerja');
+                $data['agama'] = $this->honorer_m->select_data('master_agama');
+                $data['eselon'] = $this->honorer_m->select_data('master_eselon');
+                $data['golongan'] = $this->honorer_m->select_data('master_golongan');
+                $data['sjabatan'] = $this->honorer_m->select_data('master_status_jabatan');
+                $data['bagian'] = 'admin/edit-honorer-v';
+                $data['page'] = 'admin/detail-honorer-v';
+
+                // pagging setting
+                $this->load->view('admin/dashboard-v',$data);
+            }
+        }else{
+            $pesan = 'Login terlebih dahulu';
+            $this->session->set_flashdata('message', $pesan );
+            redirect(base_url('index.php/login'));
+        }
+    }
     public function create(){
         // $lasthonor = $this->Admin_m->last_id_h()->id_honorer;
         // echo "<pre>";print_r(str_pad($lasthonor, 7, 0, STR_PAD_LEFT));echo "<pre/>";exit();
@@ -138,6 +176,74 @@ class Honorer extends CI_Controller {
             redirect(base_url('index.php/login'));
         }
     }
+    public function daftar_sppd_ld($id,$offset=0){
+        if ($this->ion_auth->logged_in()) {
+            $level = array('admin','members','skpd');
+            if (!$this->ion_auth->in_group($level)) {
+                $pesan = 'Anda tidak memiliki Hak untuk Mengakses halaman ini';
+                $this->session->set_flashdata('message', $pesan );
+                redirect(base_url('index.php/admin/dashboard'));
+            }else{
+                $this->load->model('admin/Sppd_m');
+                $post = $this->input->get();
+                $data['title'] = $this->Admin_m->info_pt(1)->nama_info_pt;
+                $data['titelbag'] = 'sppd';
+                $data['infopt'] = $this->Admin_m->info_pt(1);
+                $data['brand'] = 'asset/img/lembaga/'.$this->Admin_m->info_pt(1)->logo_pt;
+                $data['users'] = $this->ion_auth->user()->row();
+                $data['aside'] = 'nav/nav';
+                $jumlah = $this->Sppd_m->jumlah_data_detail_pegawai($id,@$post['string']);
+                $config['base_url'] = base_url().'/index.php/admin/sppd_ld/index/';
+                $config['total_rows'] = $jumlah;
+                $config['per_page'] = '10';
+                $config['first_page'] = 'Awal';
+                $config['last_page'] = 'Akhir';
+                $config['next_page'] = '&laquo;';
+                $config['prev_page'] = '&raquo;';
+                // bootstap style
+                $config['first_link']       = 'Pertama';
+                $config['last_link']        = 'Terakhir';
+                $config['next_link']        = 'Selanjutnya';
+                $config['prev_link']        = 'Sebelumnya';
+                $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+                $config['full_tag_close']   = '</ul></nav></div>';
+                $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+                $config['num_tag_close']    = '</span></li>';
+                $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+                $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+                $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+                $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+                $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+                $config['prev_tagl_close']  = '</span>Next</li>';
+                $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+                $config['first_tagl_close'] = '</span></li>';
+                $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+                $config['last_tagl_close']  = '</span></li>';
+                //inisialisasi config
+                $this->pagination->initialize($config);
+               
+                $data['golongan'] = $this->Sppd_m->select_data('master_golongan');
+                
+                // pengaturan searching
+                $data['jmldata'] = $jumlah;
+                $data['nmr'] = $offset;
+
+                $data['detail']=$this->honorer_m->detail_honorer($id);
+                $result = $this->honorer_m->detail_honorer($id);
+                $data['hasil'] = $result;
+                $data['hasil2'] = $this->Sppd_m->searcing_data_detail_honorer($id,$config['per_page'],$offset,@$post['string']);
+                $data['pagging'] = $this->pagination->create_links();
+                // pagging setting
+                $data['bagian'] = 'admin/detail-sppd-honorer-v';
+                $data['page'] = 'admin/detail-honorer-v';
+                $this->load->view('admin/dashboard-v',$data);
+            }
+        }else{
+            $pesan = 'Login terlebih dahulu';
+            $this->session->set_flashdata('message', $pesan );
+            redirect(base_url('index.php/login'));
+        }
+    }
     public function edit_honorer($id){
         if ($this->ion_auth->logged_in()) {
             $level = array('admin','members');
@@ -146,9 +252,9 @@ class Honorer extends CI_Controller {
                 $this->session->set_flashdata('message', $pesan );
                 redirect(base_url('index.php/admin/dashboard'));
             }else{
-                $result = $this->honorer_m->detail_data('honorer','id_honorer',$id);
-                
+                $result = $this->honorer_m->detail_honorer($id);
                 $data['title'] = $result->nama;
+                $data['titelbag'] = 'datadiri';
                 $data['infopt'] = $this->Admin_m->info_pt(1);
                 $data['brand'] = 'asset/img/lembaga/'.$this->Admin_m->info_pt(1)->logo_pt;
                 $data['users'] = $this->ion_auth->user()->row();
@@ -164,8 +270,9 @@ class Honorer extends CI_Controller {
                         $data['usergroups'][] = $group->id;
                     }
                 }
+                // echo "<pre>"; print_r($result); echo"<pre/>"; exit();
                 // echo "<pre>";print_r($data['sppdhonor']);echo "<pre/>";exit();
-                $data['skpd'] = $this->honorer_m->select_data('master_lokasi_kerja');
+                $data['skpd'] = $this->honorer_m->select_data('master_satuan_kerja');
                 $data['page'] = 'admin/edit-honorer-v';
                 // pagging setting
                 $this->load->view('admin/dashboard-v',$data);
@@ -226,7 +333,7 @@ public function update_honorer(){
             redirect(base_url('index.php/admin//login'));
         }
     }
-    public function buat_sppd_honorer($id,$idsppd,$idhonor){
+    public function buat_sppd_honorer($id){
         if ($this->ion_auth->logged_in()) {
             $level = array('admin','members','skpd');
             if (!$this->ion_auth->in_group($level)) {
@@ -235,23 +342,21 @@ public function update_honorer(){
                 redirect(base_url('index.php/admin/dashboard'));
             }else{
                 $this->load->model('admin/Sppd_m');
-                $this->load->model('admin/Pegawai_m');
-                $result = $this->Pegawai_m->detail_pegawai($id);
+                $this->load->model('admin/honorer_m');
+                $result = $this->honorer_m->detail_honorer($id);
                 // echo "<pre>";print_r($result);echo "<pre/>";exit();
-                $data['title'] = $result->nama_pegawai;
+                $data['title'] = $result->nama;
+                $data['titelbag'] = 'sppd';
                 $data['infopt'] = $this->Admin_m->info_pt(1);
                 $data['brand'] = 'asset/img/lembaga/'.$this->Admin_m->info_pt(1)->logo_pt;
                 $data['users'] = $this->ion_auth->user()->row();
                 $data['aside'] = 'nav/nav';
                 $data['hasil'] = $result;
-                $data['detail'] = $this->Admin_m->detail_data_order('sppd_ld','id_sppd_ld',$idsppd);
-                $data['reshonor'] = $this->Admin_m->detail_data_order('honorer','id_honorer',$idhonor);
-                // echo "<pre>";echo print_r($data['detail']);echo "<pre/>";exit();
-                $data['dtgolongan'] = $this->Sppd_m->last_golongan($id);
-                $data['dtpangkat'] = $this->Sppd_m->last_pangkat($id);
-                $data['provinsi'] = $this->Pegawai_m->select_data('master_provinsi');
-                $data['jnsperjadin'] = $this->Pegawai_m->select_data('master_jenis_perjadin');
-                $data['tjabatan'] = $this->Pegawai_m->select_data('master_jabatan');
+                // $data['detail'] = $this->Admin_m->detail_data_order('sppd_honorer','id_sppd_ld',$idsppd);
+                $data['reshonor'] = $this->Admin_m->detail_data_order('honorer','id_honorer',$id);
+                $data['provinsi'] = $this->honorer_m->select_data('master_provinsi');
+                $data['jnsperjadin'] = $this->honorer_m->select_data('master_jenis_perjadin');
+                $data['tjabatan'] = $this->honorer_m->select_data('master_jabatan');
                 $data['dteselon'] = $this->Sppd_m->last_eselon($id);
                 $data['page'] = 'admin/buat-sppd-honorer-v';
                 // pagging setting
@@ -274,20 +379,16 @@ public function update_honorer(){
                 $post = $this->input->post();
                 $datainput = array(
                     'id_jenis_perjadin' => $post['id_jenis_perjadin'],
-                    'id_sppd_ld' => $post['id_sppd_ld'],
-                    'id_pegawai' => $post['id_pegawai'],
                     'id_honorer' => $post['id_honorer'],
-                    'tahun' => $post['tahun'],
+                    'tahun' => date('Y'),
                     'tgl_sppd' => $post['tgl_sppd'],
                     'no_perjadin' => $post['no_perjadin'],
-                    'nomor' => $post['nomor'],
+                    // 'nomor' => $post['nomor'],
                     'tgl_bukti'=>$post['tgl_bukti'],
                     'maksud_perjadin'=>$post['maksud_perjadin'],
                     'tujuan_perjadin'=>$post['tujuan_perjadin'],
                     'kd_anggaran'=>$post['kd_anggaran'],
-                    'id_golongan'=>$post['id_golongan'],
                     'id_jabatan'=>$post['fjabatan'],
-                    'id_pangkat'=>$post['id_pangkat'],
                     'tujuan'=>$post['tujuan'],
                     'tgl_berangkat'=>$post['tgl_berangkat'],
                     'tgl_kembali'=>$post['tgl_kembali'],
@@ -295,13 +396,11 @@ public function update_honorer(){
                     'uraian_kas'=>$post['uraian_kas'],
                     'tempat_berangkat'=>$post['tempat_berangkat'],
                     'pejabat_yang_memerintah'=>$post['pejabat_yang_memerintah'],
-                    'id_eselon'=>$post['id_eselon'],
                     'no_rek' => $post['no_rek'],
                     'instansi' => $post['instansi'],
                     'id_bendahara' => $post['id_bendahara'],
                     'nip_bendahara' => $post['nip_bendahara'],
                     'pejabat_mengetahui'=>$post['pejabat_mengetahui'],
-                    'biaya_riil'=>$post['biaya_riil'],
                     'dasar_pelaksanaan'=>$post['dasar_pelaksanaan'],
                     'isi_laporan'=>$post['isi_laporan'],
                     'alat_angkutan'=>$post['alat_angkutan'],
@@ -329,9 +428,9 @@ public function update_honorer(){
                     'biaya_sisa'=>$post['biaya_sisa']
                 );
                 $this->honorer_m->insert_data('sppd_honorer',$datainput);
-                $pesan = 'Data Honorer baru berhasil di tambahkan';
+                $pesan = 'Data SPPD baru berhasil di tambahkan';
                 $this->session->set_flashdata('message', $pesan );
-                redirect(base_url('index.php/admin//honorer/edit_honorer/'.$post['id_honorer']));
+                redirect(base_url('index.php/admin/honorer/daftar_sppd_ld/'.$post['id_honorer']));
             }
         }else{
             $pesan = 'Login terlebih dahulu';
@@ -348,26 +447,24 @@ public function update_honorer(){
                 redirect(base_url('index.php/admin/dashboard'));
             }else{
                 $this->load->model('admin/Sppd_m');
-                $this->load->model('admin/Pegawai_m');
+                $this->load->model('admin/honorer_m');
                 $detsppdhon = $this->Admin_m->detail_data_order('sppd_honorer','id_sppd_honorer',$idsppd);
-                $result = $this->Pegawai_m->detail_pegawai($detsppdhon->id_pegawai);
+                $result = $this->honorer_m->detail_honorer($idhonor);
                 // echo "<pre>";print_r($result);echo "<pre/>";exit();
-                $data['title'] = $result->nama_pegawai;
+                $data['title'] = 'Edit';
+                $data['titelbag'] = 'sppd';
                 $data['infopt'] = $this->Admin_m->info_pt(1);
                 $data['brand'] = 'asset/img/lembaga/'.$this->Admin_m->info_pt(1)->logo_pt;
                 $data['users'] = $this->ion_auth->user()->row();
                 $data['aside'] = 'nav/nav';
-                $data['hasil'] = $result;
-                $data['detail'] = $this->Admin_m->detail_data_order('sppd_ld','id_sppd_ld',$detsppdhon->id_sppd_ld);
-                $data['reshonor'] = $this->Admin_m->detail_data_order('honorer','id_honorer',$idhonor);
+                // $data['hasil'] = $result;
+                $data['detail'] = $this->Admin_m->detail_data_order('sppd_honorer','id_sppd_honorer',$idhonor);
+                $data['reshonor'] =  $this->Admin_m->detail_data_order('honorer','id_honorer',$idsppd);
                 $data['detsppdhon'] = $detsppdhon;
-                // echo "<pre>";echo print_r($data['detail']);echo "<pre/>";exit();
-                $data['dtgolongan'] = $this->Sppd_m->last_golongan($detsppdhon->id_pegawai);
-                $data['dtpangkat'] = $this->Sppd_m->last_pangkat($detsppdhon->id_pegawai);
-                $data['provinsi'] = $this->Pegawai_m->select_data('master_provinsi');
-                $data['jnsperjadin'] = $this->Pegawai_m->select_data('master_jenis_perjadin');
-                $data['tjabatan'] = $this->Pegawai_m->select_data('master_jabatan');
-                $data['dteselon'] = $this->Sppd_m->last_eselon($detsppdhon->id_pegawai);
+                // echo "<pre>";echo print_r($data['reshonor']);echo "<pre/>";exit();
+                $data['provinsi'] = $this->honorer_m->select_data('master_provinsi');
+                $data['jnsperjadin'] = $this->honorer_m->select_data('master_jenis_perjadin');
+                $data['tjabatan'] = $this->honorer_m->select_data('master_jabatan');
                 $data['page'] = 'admin/edit-sppd-honorer-v';
                 // pagging setting
                 $this->load->view('admin/dashboard-v',$data);
@@ -390,7 +487,6 @@ public function update_honorer(){
                 $datainput = array(
                     'id_jenis_perjadin' => $post['id_jenis_perjadin'],
                     'id_sppd_ld' => $post['id_sppd_ld'],
-                    'id_pegawai' => $post['id_pegawai'],
                     'id_honorer' => $post['id_honorer'],
                     'tahun' => $post['tahun'],
                     'tgl_sppd' => $post['tgl_sppd'],
@@ -402,7 +498,6 @@ public function update_honorer(){
                     'kd_anggaran'=>$post['kd_anggaran'],
                     'id_golongan'=>$post['id_golongan'],
                     'id_jabatan'=>$post['fjabatan'],
-                    'id_pangkat'=>$post['id_pangkat'],
                     'tujuan'=>$post['tujuan'],
                     'tgl_berangkat'=>$post['tgl_berangkat'],
                     'tgl_kembali'=>$post['tgl_kembali'],
@@ -416,7 +511,6 @@ public function update_honorer(){
                     'id_bendahara' => $post['id_bendahara'],
                     'nip_bendahara' => $post['nip_bendahara'],
                     'pejabat_mengetahui'=>$post['pejabat_mengetahui'],
-                    'biaya_riil'=>$post['biaya_riil'],
                     'dasar_pelaksanaan'=>$post['dasar_pelaksanaan'],
                     'isi_laporan'=>$post['isi_laporan'],
                     'alat_angkutan'=>$post['alat_angkutan'],
@@ -444,9 +538,9 @@ public function update_honorer(){
                     'biaya_sisa'=>$post['biaya_sisa']
                 );
                 $this->honorer_m->update_data('sppd_honorer','id_sppd_honorer',$post['id_sppd_honorer'],$datainput);
-                $pesan = 'Data SPPD Honorer berhasil di edit';
+                $pesan = 'Data SPD Honorer berhasil di edit';
                 $this->session->set_flashdata('message', $pesan );
-                redirect(base_url('index.php/admin//honorer/edit_honorer/'.$post['id_honorer']));
+                redirect(base_url('index.php/admin/honorer/edit_honorer/'.$post['id_honorer']));
             }
         }else{
             $pesan = 'Login terlebih dahulu';
@@ -454,7 +548,7 @@ public function update_honorer(){
             redirect(base_url('index.php/login'));
         }
     }
-    public function cetak_sppd_ld($id,$sppd){
+    public function cetak_sppd_honorer($id){
         if ($this->ion_auth->logged_in()) {
             $level = array('admin','members','skpd');
             if (!$this->ion_auth->in_group($level)) {
@@ -463,31 +557,109 @@ public function update_honorer(){
                 redirect(base_url('index.php/admin/dashboard'));
             }else{
                 $this->load->model('admin/Sppd_m');
-                $result = $this->Pegawai_m->detail_pegawai($id);
+                $result = $this->honorer_m->detail_honorer($id);
                 // echo "<pre>";print_r($result);echo "<pre/>";exit();
-                $data['title'] = 'Cetak SPPD - '.$result->nama_pegawai;
+                $data['titelbag'] = 'sppd';
+                $data['title'] = 'Cetak SPD - '.$result->nama;
                 $data['infopt'] = $this->Admin_m->info_pt(1);
                 $data['brand'] = 'asset/img/lembaga/'.$this->Admin_m->info_pt(1)->logo_pt;
                 $data['users'] = $this->ion_auth->user()->row();
                 $data['aside'] = 'nav/nav';
                 $data['hasil'] = $result;
-                $data['hasil2'] = $this->Admin_m->detail_data_order('sppd_ld','id_sppd_ld',$sppd);
-                $data['pengikut'] = $this->Admin_m->select_data_order('master_pengikut','id_sppd',$sppd);
+                $data['hasil2'] = $this->Admin_m->select_data_order('sppd_honorer','id_sppd_honorer',$id);
                 $data['dtgolongan'] = $this->Sppd_m->last_golongan($id);
-                $data['dtpangkat'] = $this->Sppd_m->last_pangkat($id);
                 $data['dtsatuan'] = $this->Sppd_m->last_satuan_kerja($id);
-                $data['provinsi'] = $this->Pegawai_m->select_data('master_provinsi');
-                $data['tjabatan'] = $this->Pegawai_m->select_data('master_jabatan');
+                $data['provinsi'] = $this->honorer_m->select_data('master_provinsi');
+                $data['sjabatan'] = $this->honorer_m->select_data('master_status_jabatan');
                 // echo "<pre>";print_r($data['hasil2']);echo "<pre/>";exit();
-                $data['jnsperjadin'] = $this->Pegawai_m->select_data('master_jenis_perjadin');
-                $data['dteselon'] = $this->Sppd_m->last_eselon($id);
+                $data['jnsperjadin'] = $this->honorer_m->select_data('master_jenis_perjadin');
                 // pagging setting
-                $this->load->view('admin/cetak-sppd-ld-v',$data);
+                $this->load->view('admin/cetak-detail-honorer-v',$data);
             }
         }else{
             $pesan = 'Login terlebih dahulu';
             $this->session->set_flashdata('message', $pesan );
             redirect(base_url('index.php/login'));
+        }
+    }
+    public function cetak_detail_honorer($id){
+        if ($this->ion_auth->logged_in()) {
+            $level = array('admin','members','skpd');
+            if (!$this->ion_auth->in_group($level)) {
+                $pesan = 'Anda tidak memiliki Hak untuk Mengakses halaman ini';
+                $this->session->set_flashdata('message', $pesan );
+                redirect(base_url('index.php/admin/dashboard'));
+            }else{
+                $this->load->model('admin/Sppd_m');
+                $result = $this->honorer_m->detail_honorer($id);
+                // echo "<pre>";print_r($result);echo "<pre/>";exit();
+                $data['titelbag'] = 'sppd';
+                $data['title'] = 'Cetak SPD - '.$result->nama;
+                $data['infopt'] = $this->Admin_m->info_pt(1);
+                $data['brand'] = 'asset/img/lembaga/'.$this->Admin_m->info_pt(1)->logo_pt;
+                $data['users'] = $this->ion_auth->user()->row();
+                $data['aside'] = 'nav/nav';
+                $data['hasil'] = $result;
+                $data['hasil2'] = $this->Admin_m->detail_data_order('sppd_honorer','id_sppd_honorer',$id);
+                $data['dtgolongan'] = $this->Sppd_m->last_golongan($id);
+                $data['dtsatuan'] = $this->Sppd_m->last_satuan_kerja($id);
+                $data['provinsi'] = $this->honorer_m->select_data('master_provinsi');
+                $data['sjabatan'] = $this->honorer_m->select_data('master_status_jabatan');
+                // echo "<pre>";print_r($data['hasil2']);echo "<pre/>";exit();
+                $data['jnsperjadin'] = $this->honorer_m->select_data('master_jenis_perjadin');
+                // pagging setting
+                $this->load->view('admin/cetak-sppd-honorer-v',$data);
+            }
+        }else{
+            $pesan = 'Login terlebih dahulu';
+            $this->session->set_flashdata('message', $pesan );
+            redirect(base_url('index.php/login'));
+        }
+    }
+public function biayaharian(){
+        $post = $this->input->post();
+        $prov = $post['id_provinsi'];
+        $jab = $post['id_jabatan'];
+        $biaya = $this->honorer_m->gtdataharian($prov,$jab)->biaya;
+        if ($biaya == TRUE) {
+            echo $biaya;
+        }else{
+            echo "Provinsi atau Jabatan belum di pilih";
+        }
+    }
+    public function biayahotel(){
+        $post = $this->input->post();
+        $prov = $post['id_provinsi'];
+        $jab = $post['id_jabatan'];
+        $biaya = $this->honorer_m->gtdatahotel($prov,$jab)->biaya;
+        if ($biaya == TRUE) {
+            echo $biaya;
+        }else{
+            echo "Provinsi atau Jabatan belum di pilih";
+        }
+    }
+    public function ttlbiayaharian(){
+        $post = $this->input->post();
+        $prov = $post['id_provinsi'];
+        $jab = $post['id_jabatan'];
+        $lh = $post['lama_hari'];
+        $biaya = $this->honorer_m->gtdatahotel($prov,$jab)->biaya;
+        if ($biaya == TRUE) {
+            echo $biaya*$lh;
+        }else{
+            echo "Beberapa data belum diisi";
+        }
+    }
+    public function ttlbiayahotel(){
+        $post = $this->input->post();
+        $prov = $post['id_provinsi'];
+        $jab = $post['id_jabatan'];
+        $lh = $post['lama_hari'];
+        $biaya = $this->honorer_m->gtdatahotel($prov,$jab)->biaya;
+        if ($biaya == TRUE) {
+            echo $biaya*$lh;
+        }else{
+            echo "Beberapa data belum diisi";
         }
     }
 

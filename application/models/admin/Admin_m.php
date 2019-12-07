@@ -151,6 +151,10 @@ class Admin_m extends CI_Model
 		$query = $this->db->get('sppd_ld');
 		return $query->result();
 	}
+	public function data_sppd_honorer(){
+		$query = $this->db->get('sppd_honorer');
+		return $query->result();
+	}
 	public function last_id_p(){
 		$this->db->select('id_pegawai');
 		$this->db->order_by('id_pegawai','desc');

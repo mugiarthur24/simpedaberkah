@@ -1,9 +1,10 @@
+<script src="<?php echo base_url('asset/js/jquery.js') ?>"></script>
 <form action="<?php echo base_url('index.php/admin/pegawai/create_sppd_ld') ?>" method="post">
-	<div style="margin-top: 14px; background-color: white;padding: 30px">
-		Tambah SPPD
+	<div style="background-color: white;padding: 30px">
+		<b>Tambah SPPD</b>
 	</div>
-	<div style="margin-top: 14px; background-color: white;padding: 30px">
-		Detail Pegawai<hr/>
+	<div style="background-color: white;padding: 30px">
+		<b>Detail Pegawai</b><hr/>
 		<div class="row">
 			<div class="col">
 				<div class="form-group">
@@ -21,47 +22,59 @@
 				</div>
 			</div>
 			<div class="col">
-			<div class="form-group">
-				<label>Jenis Perjalanan Dinas</label>
-				<select class="form-control" name="id_jenis_perjadin">
-					<option value="1">Pilih Jenis Perjalanan Dinas</option>
-					<?php foreach ($jnsperjadin as $datap): ?>
-						<option value="<?php echo $datap->id_jenis_perjadin ?>"><?php echo $datap->jenis_perjadin ?></option>
-					<?php endforeach ?>
-				</select>
-				<small class="form-text text-muted">Pilih salah satu dari data diatas</small>
+				<div class="form-group">
+					<label>Jenis Perjalanan Dinas</label>
+					<select class="form-control" name="id_jenis_perjadin">
+						<option value="1">Pilih Jenis Perjalanan Dinas</option>
+						<?php foreach ($jnsperjadin as $datap): ?>
+							<option value="<?php echo $datap->id_jenis_perjadin ?>"><?php echo $datap->jenis_perjadin ?></option>
+						<?php endforeach ?>
+					</select>
+					<small class="form-text text-muted">Pilih salah satu dari data diatas</small>
+				</div>
 			</div>
 		</div>
-		</div>
-		<div class="row">
+			<div class="row">
 			<div class="col">
 				<div class="form-group">
 					<label>Golongan</label>
-					<div class="form-control bg-light"><?php echo $dtgolongan->golongan ?></div>
-					<input type="hidden" name="id_golongan" value="<?php echo $dtgolongan->id_golongan ?>">
-					<small class="form-text text-muted">Gunakan Huruf melakukan pengisian ini</small>
+					<?php if (@$dtgolongan->golongan == TRUE): ?>
+						<div class="form-control bg-light"><?php echo $dtgolongan->golongan ?></div>
+						<input type="hidden" name="id_golongan" value="<?php echo $dtgolongan->id_golongan ?>">
+					<?php else: ?>
+						<div class="form-control bg-light">-</div>
+						<input type="hidden" name="id_golongan" value="0">
+					<?php endif ?>
 				</div>
 			</div>	
 			<div class="col">
 				<div class="form-group">
 					<label>Pangkat</label>
-					<div class="form-control bg-light"><?php echo $dtpangkat->nm_pangkat ?></div>
-					<input type="hidden" name="id_pangkat" value="<?php echo $dtpangkat->id_pangkat ?>">
-					<small class="form-text text-muted">Gunakan Huruf melakukan pengisian ini</small>
+					<?php if (@$dtpangkat->nm_pangkat == TRUE): ?>
+						<div class="form-control bg-light"><?php echo $dtpangkat->nm_pangkat  ?></div>
+						<input type="hidden" name="id_pangkat" value="<?php echo $dtpangkat->id_pangkat ?>">
+					<?php else: ?>
+						<div class="form-control bg-light">-</div>
+						<input type="hidden" name="id_pangkat" value="0">
+					<?php endif ?>
 				</div>
 			</div>	
 			<div class="col">
 				<div class="form-group">
 					<label>Eselon</label>
-					<div class="form-control bg-light"><?php echo $dteselon->nama_eselon ?></div>
-					<input type="hidden" name="id_eselon" value="<?php echo $dteselon->id_eselon ?>">
-					<small class="form-text text-muted">Gunakan Huruf melakukan pengisian ini</small>
+					<?php if (@$dteselon->nama_eselon ==TRUE): ?>
+						<div class="form-control bg-light"><?php echo $dteselon->nama_eselon ?></div>
+						<input type="hidden" name="id_eselon" value="<?php echo $dteselon->id_eselon ?>">
+					<?php else: ?>
+						<div class="form-control bg-light">-</div>
+						<input type="hidden" name="id_eselon" value="0">					
+					<?php endif ?>
 				</div>
-			</div>	
+			</div>
 		</div>
 	</div>
-	<div style="margin-top: 14px; background-color: white;padding: 30px">
-		Data SPPD<hr/>
+	<div style="background-color: white;padding: 30px">
+		<b>Rincian SPPD</b><hr/>
 		<div class="row">
 			<div class="col">
 				<div class="form-group">
@@ -70,8 +83,8 @@
 					<small class="form-text text-muted">Gunakan Huruf melakukan pengisian ini</small>
 				</div>
 			</div>
-			</div>
-			<div class="row">
+		</div>
+		<div class="row">
 			<div class="col">
 				<div class="form-group">
 					<label>Tanggal SPPD</label>
@@ -108,7 +121,7 @@
 		<div class="row">
 			<div class="col">
 				<div class="form-group">
-					<label>Mata Anggaran</label>
+					<label>Kode Rekening Anggaran</label>
 					<input type="text" class="form-control" name="no_rek" placeholder="Masukan Kode Anggaran">
 					<small class="form-text text-muted">Maksimal 114 karakter</small>
 				</div>
@@ -168,8 +181,8 @@
 		</div>
 	</div>
 </div>
-<div style="margin-top: 14px; background-color: white;padding: 30px">
-	Rincian Biaya<hr/>
+<div style="background-color: white;padding: 30px">
+	<b>Rincian Biaya</b><hr/>
 	<div class="row">
 		<div class="col">
 			<div class="form-group">
@@ -269,8 +282,8 @@
 		</div>
 	</div>
 </div>
-<div style="margin-top: 14px; background-color: white;padding: 30px">
-	Rincian Tiket<hr/>
+<div style="background-color: white;padding: 30px">
+	<b>Rincian Tiket</b><hr/>
 	<div class="row">
 		<div class="col">
 			<div class="form-group">
@@ -352,8 +365,8 @@
 		</div>
 	</div>
 </div>
-<div style="margin-top: 14px; background-color: white;padding: 30px">
-	Akomodasi<hr/>
+<div style="background-color: white;padding: 30px">
+	<b>Akomodasi</b><hr/>
 	<div class="row">
 		<div class="col">
 			<div class="form-group">
@@ -412,11 +425,11 @@
 		<small class="form-text text-muted">Maksimal 114 Karakter</small>
 	</div>
 </div>
-<div style="margin-top: 14px; background-color: white;padding: 30px">
+<div style="background-color: white;padding: 30px">
 	<div class="row">
 		<div class="col">
 			<div class="form-group">
-				<label>Instansi</label>
+				<label><b>Instansi</b></label>
 				<input type="text" class="form-control" name="instansi" placeholder="Masukan Nama Angkutan">
 				<small class="form-text text-muted">Maksimal 114 Karakter</small>
 			</div>
@@ -441,7 +454,7 @@
 		</div>	 -->
 	</div>
 </div>
-<div style="margin-top: 14px; background-color: white;padding: 30px">
+<div style="background-color: white;padding: 30px">
 	<div class="row">
 		<div class="col">
 			<div class="form-group">
@@ -522,7 +535,7 @@
 });
 	$(document).ready(function() {
   $('#jabatan').change(function() { // Jika select box id kurir dipilih
-  		var lamahari = $('#lama_hari').val();
+  	var lamahari = $('#lama_hari').val();
        var prov = $('#provinsi').val(); // Ciptakan variabel kurir
        var jab = $('#jabatan').val();; // Ciptakan variabel kota
        $.ajax({
@@ -537,7 +550,7 @@
 });
 	$(document).ready(function() {
   $('#jabatan').change(function() { // Jika select box id kurir dipilih
-  		var lamahari = $('#lama_hari').val();
+  	var lamahari = $('#lama_hari').val();
        var prov = $('#provinsi').val(); // Ciptakan variabel kurir
        var jab = $('#jabatan').val();; // Ciptakan variabel kota
        $.ajax({
@@ -550,28 +563,28 @@
       });
    });
 });
-$(document).ready(function() {
+	$(document).ready(function() {
   $('#bypulang').keyup(function() { // Jika select box id kurir dipilih
-  		var totuanghari = $('#tuhr').val();
+  	var totuanghari = $('#tuhr').val();
        var totbyhotel = $('#tbhtl').val(); // Ciptakan variabel kurir
        var biayaril = $('#byril').val();
        var biayapergi = $('#bypergi').val(); // Ciptakan variabel kota
        var biayapulang = $('#bypulang').val(); // Ciptakan variabel kota
        var biayalain = $('#bylain').val(); // Ciptakan variabel kota
        var totbiaya = parseInt(totuanghari) + parseInt(totbyhotel) + parseInt(biayaril) +parseInt(biayapergi) + parseInt(biayapulang) + parseInt(biayalain);
-      if (!isNaN(totbiaya)) {
-         document.getElementById('jmlbiayatot').value = totbiaya;
-      }
+       if (!isNaN(totbiaya)) {
+       	document.getElementById('jmlbiayatot').value = totbiaya;
+       }
    });
 });
-$(document).ready(function() {
+	$(document).ready(function() {
   $('#jmldibayarkan').keyup(function() { // Jika select box id kurir dipilih
-  		var totdibayar = $('#jmlbiayatot').val();
+  	var totdibayar = $('#jmlbiayatot').val();
        var sisa = $('#jmldibayarkan').val(); // Ciptakan variabel kurir
        var totsisa = parseInt(totdibayar) - parseInt(sisa) ;
-      if (!isNaN(totsisa)) {
-         document.getElementById('sisabiaya').value = totsisa;
-      }
+       if (!isNaN(totsisa)) {
+       	document.getElementById('sisabiaya').value = totsisa;
+       }
    });
 });
 </script>

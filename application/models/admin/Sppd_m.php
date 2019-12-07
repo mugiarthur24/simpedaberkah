@@ -21,6 +21,16 @@ class Sppd_m extends CI_Model
 		$query = $this->db->get('sppd_ld',$sampai,$dari);
 		return $query->result();
 	}
+	public function searcing_data_honorer($sampai,$dari,$string){
+		// $this->db->select('data_pegawai.*,master_golongan');
+		$this->db->select('sppd_honorer.*,honorer.id_honorer,honorer.nama');
+		$this->db->join('honorer', 'honorer.id_honorer = sppd_honorer.id_honorer');
+		if (!empty($string)) {
+			$this->db->like('honorer.nama',$string);}
+		$this->db->order_by('id_sppd_honorer','desc');
+		$query = $this->db->get('sppd_honorer',$sampai,$dari);
+		return $query->result();
+	}
 	public function jumlah_data_detail_pegawai($id,$string){
 		$this->db->select('sppd_ld.*,data_pegawai.id_pegawai,data_pegawai.nip,data_pegawai.nip_lama,data_pegawai.nama_pegawai');
 		$this->db->from('sppd_ld');
@@ -29,6 +39,17 @@ class Sppd_m extends CI_Model
 			$this->db->like('nama_pegawai',$string);
 		}
 		$this->db->where('sppd_ld.id_pegawai',$id);
+		$rs = $this->db->count_all_results();
+		return $rs;
+	}
+	public function jumlah_data_detail_honorer($id,$string){
+		$this->db->select('sppd_honorer.*,honorer.id_honorer,honorer.nama');
+		$this->db->from('sppd_honorer');
+		$this->db->join('honorer', 'honorer.id_honorer = sppd_honorer.id_honorer');
+		if (!empty($string)) {
+			$this->db->like('nama',$string);
+		}
+		$this->db->where('sppd_honorer.id_honorer',$id);
 		$rs = $this->db->count_all_results();
 		return $rs;
 	}
@@ -41,6 +62,17 @@ class Sppd_m extends CI_Model
 		$this->db->where('sppd_ld.id_pegawai',$id);
 		$this->db->order_by('id_sppd_ld','desc');
 		$query = $this->db->get('sppd_ld',$sampai,$dari);
+		return $query->result();
+	}
+	public function searcing_data_detail_honorer($id,$sampai,$dari,$string){
+		// $this->db->select('data_pegawai.*,master_golongan');
+		$this->db->select('sppd_honorer.*,honorer.id_honorer,honorer.nama');
+		$this->db->join('honorer', 'honorer.id_honorer = sppd_honorer.id_honorer');
+		if (!empty($string)) {
+			$this->db->like('honorer.nama',$string);}
+		$this->db->where('sppd_honorer.id_honorer',$id);
+		$this->db->order_by('id_sppd_honorer','desc');
+		$query = $this->db->get('sppd_honorer',$sampai,$dari);
 		return $query->result();
 	}
 	public function detail_pegawai($id){

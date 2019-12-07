@@ -2,7 +2,7 @@
 	<div class="ktk-jdl">
 		<div class="media">
 			<div class="media-body">
-				Data SPPD Luar Daerah <span class="text-secondary">Jumlah <?php echo $jmldata; ?></span>
+				Daftar SPPD <span class="text-secondary">Jumlah <?php echo $jmldata; ?></span>
 			</div>
 			
 		</div>
@@ -18,18 +18,20 @@
 				</div>
 			</div>
 		</form>
-		
-		<table class="w-100 mt-2" border="1" style="font-size: 13px">
+	</div>
+<div class="card-body">
+	<div class="table-responsive">
+		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 			<thead>
 				<tr class="table-info">
-					<td class="p-1 text-center">No</td>
-					<td class="p-1" align="center">No. Bukti</td>
-					<td class="p-1" align="center">Pegawai</td>
-					<td class="p-1" align="center">NIP</td>
-					<td class="p-1" align="center">Keperluan</td>
-					<td class="p-1" align="center">Tujuan</td>
-					<td class="p-1" align="center">Jumlah Anggaran</td>
-					<td class="p-1" colspan="2" align="center"></td>
+					<td class="p-1 text-center" style="vertical-align: middle;">No</td>
+					<td class="p-1" align="center" style="vertical-align: middle;">No. Bukti</td>
+					<td class="p-1" align="center" style="vertical-align: middle;">Pegawai</td>
+					<td class="p-1" align="center" style="vertical-align: middle;">NIP</td>
+					<td class="p-1" align="center" style="vertical-align: middle;">Keperluan</td>
+					<td class="p-1" align="center" style="vertical-align: middle;">Tujuan</td>
+					<td class="p-1" align="center" style="vertical-align: middle;">Jumlah Anggaran</td>
+					
 					
 				</tr>
 			</thead>
@@ -37,18 +39,13 @@
 				<?php $no = 1 ?>
 				<?php foreach ($hasil2 as $data): ?>
 					<tr>
-						<td class="p-1 text-center"><?php echo $no; ?></td>
-						<td class="p-1 text-secondary"><?php echo $data->no_perjadin; ?></td>
-						<td class="p-1 text-secondary"><?php echo strtoupper($data->nama_pegawai); ?></td>
-						<td class="p-1 text-secondary"><?php echo $data->nip; ?></td>
-						<td class="p-1 text-secondary"><?php echo $data->maksud_perjadin; ?></td>
-						<td class="p-1 text-secondary"><?php echo $data->tujuan; ?></td>
-						<td class="p-1 text-secondary"><?php echo $data->jumlah_biaya; ?></td>
-						<td class="p-1">
-							<a href="<?php echo base_url('index.php/admin/sppd_ld/edit/'.$data->id_sppd_ld) ?>" class="text-success" ><i class="ti ti-plus" rel="tooltip" title="Edit"></i></a>
-						</td>
-						<td class="p-1">
-							<a href="<?php echo base_url('index.php/admin/sppd_ld/delete_sppd_ld/'.$data->id_sppd_ld) ?>" class="text-danger"><i class="ti ti-trash" rel="tooltip" title="Hapus"></i></a>
+						<td class="p-1 text-center" style="font-size: 13px"><?php echo $no; ?></td>
+						<td class="p-1 text-secondary" style="font-size: 13px"><?php echo $data->no_perjadin; ?></td>
+						<td class="p-1 text-secondary" style="font-size: 13px"><?php echo strtoupper($data->nama_pegawai); ?></td>
+						<td class="p-1 text-secondary" style="font-size: 13px"><?php echo $data->nip; ?></td>
+						<td class="p-1 text-secondary" style="font-size: 13px"><?php echo $data->maksud_perjadin; ?></td>
+						<td class="p-1 text-secondary" style="font-size: 13px"><?php echo $data->tujuan; ?></td>
+						<td class="p-1 text-secondary" style="font-size: 13px"><?php echo $data->jumlah_biaya; ?></td>
 						</td>
 					</tr>
 					<?php $no++ ?>
@@ -57,4 +54,5 @@
 		</table>
 		<?php echo $pagging; ?>
 	</div>
+</div>
 </div>

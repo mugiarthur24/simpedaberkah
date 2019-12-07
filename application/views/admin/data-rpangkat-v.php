@@ -4,11 +4,13 @@
 			<h4>Riwayat pangkat</h4>
 		</div>
 		<div class="media-right">
-			<button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#addrpangkat"><i class="ti ti-plus"></i> Tambah Data Riwayat pangkat</button>
+			<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addrpangkat"><i class="fas fa-plus"></i> Tambah Data Riwayat pangkat</button>
 		</div>
 	</div>
 	<hr/>
-	<table class="w-100" border="1" style="font-size: 13px;">
+	<div class="card-body">
+	<div class="table-responsive">
+		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 		<thead>
 			<tr class="table-info">
 				<td class="p-1 text-center">No</td>
@@ -30,10 +32,10 @@
 						<td class="p-1"><?php echo date('d F Y', strtotime($data->tanggal_sk)) ; ?></td>
 						<td class="p-1"><?php echo $data->masa_kerja; ?></td>
 						<td class="p-1 text-center">
-							<a href="<?php echo base_url('index.php/admin/pegawai/edit_rpangkat/'.$hasil->id_pegawai.'/'.$data->id_riwayat_pangkat) ?>" class="text-success"><i class="ti ti-pencil" rel="tooltip" title="Edit"></i></a>
+							<a href="<?php echo base_url('index.php/admin/pegawai/edit_rpangkat/'.$hasil->id_pegawai.'/'.$data->id_riwayat_pangkat) ?>" class="text-success">Edit</a>
 						</td>
 						<td class="p-1 text-center">
-							<a href="<?php echo base_url('index.php/admin/pegawai/delete_rpangkat/'.$hasil->id_pegawai.'/'.$data->id_riwayat_pangkat) ?>" class="text-danger"><i class="ti ti-trash" rel="tooltip" title="Hapus"></i></a>
+							<a href="<?php echo base_url('index.php/admin/pegawai/delete_rpangkat/'.$hasil->id_pegawai.'/'.$data->id_riwayat_pangkat) ?>" class="text-danger">Hapus</a>
 						</td>
 					</tr>
 					<?php $no++ ?>
@@ -45,6 +47,8 @@
 				<?php endif ?>
 			</tbody>
 		</table>
+	</div>
+</div>
 		<!-- Modal -->
 		<div class="modal fade" id="addrpangkat" tabindex="-1" role="dialog" aria-labelledby="addrpangkat" aria-hidden="true">
 			<div class="modal-dialog modal-lg" role="document">

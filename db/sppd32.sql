@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 22 Jul 2018 pada 05.24
+-- Generation Time: 18 Mei 2019 pada 09.51
 -- Versi Server: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -172,7 +172,16 @@ CREATE TABLE `tbl_data_pegawai` (
 --
 
 INSERT INTO `tbl_data_pegawai` (`id_pegawai`, `nip`, `nip_lama`, `no_kartu_pegawai`, `nama_pegawai`, `agama`, `tempat_lahir`, `tanggal_lahir`, `nomor_kk`, `nomor_ktp`, `jenis_kelamin`, `usia`, `status_pegawai`, `tanggal_pengangkatan_cpns`, `alamat`, `no_hp`, `email`, `no_npwp`, `kartu_askes_pegawai`, `status_pegawai_pangkat`, `id_golongan`, `nomor_sk_pangkat`, `tanggal_sk_pangkat`, `tanggal_mulai_pangkat`, `tanggal_selesai_pangkat`, `id_status_jabatan`, `id_jabatan`, `id_unit_kerja`, `id_satuan_kerja`, `nomor_sk_jabatan`, `tanggal_sk_jabatan`, `tanggal_mulai_jabatan`, `tanggal_selesai_jabatan`, `id_eselon`, `tmt_eselon`, `tmt_cpns`, `gaji_pokok`, `tmt_pns`, `foto`, `gelar_dpn`, `gelar_belakang`, `no_rek`) VALUES
-(35, '19740115 199702 1 002', '', '', 'SAMRIN , S.Pd., M.Pd', 1, '', '', '', '', 'Laki-Laki', '', '3', '--', '', '', '', '', '', '', 4, '', '', '', '', 0, 0, 0, 186, '', '', '', '', 0, '', '--', '', '--', 'avatar.png', '', '', 'tidak diisi');
+(1, '19740115 199702 1 002', '', '', 'SAMRIN', 1, '', '', '', '', 'Laki-Laki', '', '3', '--', '', '', '', '', '', '', 4, '', '', '', '', 0, 0, 0, 186, '', '', '', '', 0, '', '--', '', '--', 'avatar.png', '', 'S.Pd., M.Pd', 'tidak diisi'),
+(2, '19660204 199203 1 011', '', '', 'LA ANCE PAULUS', 2, '', '', '', '', 'Laki-Laki', '', '3', '--', '', '', '', '', '', '', 5, '', '', '', '', 0, 0, 0, 186, '', '', '', '', 0, '', '----', '', '--', 'avatar.png', '', 'S.Pd', 'tidak diisi'),
+(3, '19721231 200701 1 093', '', '', 'ZAHINUDDIN', 1, '', '', '', '', 'Laki-Laki', '', '3', '--', '', '', '', '', '', '', 6, '', '', '', '', 0, 0, 0, 186, '', '', '', '', 0, '', '--', '', '--', 'avatar.png', '', 'S.P', 'tidak diisi'),
+(4, '19771231 201001 1 053', '', '', 'SARIFUDDIN FANTA', 1, '', '', '', '', 'Laki-Laki', '', '3', '--', '', '', '', '', '', '', 6, '', '', '', '', 0, 0, 0, 186, '', '', '', '', 0, '', '--', '', '--', 'avatar.png', '', 'S.IP', 'tidak diisi'),
+(5, '19760604 201001 1 019', '', '', 'HARJUN HATMA', 1, '', '', '', '', 'Laki-Laki', '', '3', '--', '', '', '', '', '', '', 7, '', '', '', '', 0, 0, 0, 186, '', '', '', '', 0, '', '----', '', '--', 'avatar.png', '', 'SP', 'tidak diisi'),
+(6, '19751115 201407 1 001', '', '', 'MUHAMMAD KASIM KAMPO', 1, '', '', '', '', 'Laki-Laki', '', '3', '--', '', '', '', '', '', '', 8, '', '', '', '', 0, 0, 0, 186, '', '', '', '', 0, '', '--', '', '--', 'avatar.png', '', 'SE', 'tidak diisi'),
+(7, '19840713 200701 2 005', '', '', 'ASTUTI AHMAD', 1, '', '', '', '', 'Perempuan', '', '3', '--', '', '', '', '', '', '', 8, '', '', '', '', 0, 0, 0, 186, '', '', '', '', 0, '', '--', '', '--', 'avatar.png', '', 'S.Sos', 'tidak diisi'),
+(8, '19721206 201212 2 001', '', '', 'SUHARNI', 1, '', '', '', '', 'Perempuan', '', '3', '--', '', '', '', '', '', '', 9, '', '', '', '', 0, 0, 0, 186, '', '', '', '', 0, '', '--', '', '--', 'avatar.png', '', '', 'tidak diisi'),
+(9, '19851001 201407 1 001', '', '', 'MUHAMMAD SAHRONI', 1, '', '', '', '', 'Laki-Laki', '', '3', '--', '', '', '', '', '', '', 9, '', '', '', '', 0, 0, 0, 186, '', '', '', '', 0, '', '--', '', '--', 'avatar.png', '', '', 'tidak diisi'),
+(10, '19620220 201407 1 001', '', '', 'LA ALIYANA', 1, '', '', '', '', 'Laki-Laki', '', '3', '--', '', '', '', '', '', '', 13, '', '', '', '', 0, 0, 0, 186, '', '', '', '', 0, '', '--', '', '--', 'avatar.png', '', '', 'tidak diisi');
 
 -- --------------------------------------------------------
 
@@ -244,7 +253,12 @@ CREATE TABLE `tbl_data_riwayat_eselon` (
 --
 
 INSERT INTO `tbl_data_riwayat_eselon` (`id_riwayat_eselon`, `id_pegawai`, `id_eselon`, `id_jenis_jabatan`, `nm_jabatan`, `nomor_sk`) VALUES
-(1, 35, 24, 1, 'KEPALA BKPSDM', '');
+(1, 5, 29, 1, '', ''),
+(2, 2, 27, 1, '', ''),
+(3, 6, 29, 1, '', ''),
+(4, 1, 26, 1, '', ''),
+(5, 4, 28, 1, '', ''),
+(6, 3, 28, 1, '', '');
 
 -- --------------------------------------------------------
 
@@ -269,7 +283,16 @@ CREATE TABLE `tbl_data_riwayat_golongan` (
 --
 
 INSERT INTO `tbl_data_riwayat_golongan` (`id_riwayat_golongan`, `id_pegawai`, `id_golongan`, `nomor_sk`, `tanggal_sk`, `tmt_golongan`, `nomor_bkn`, `tanggal_bkn`, `masa_kerja`) VALUES
-(3, 35, 4, '', '--', '--', '', '--', '');
+(1, 7, 8, '', '--', '--', '', '--', ''),
+(2, 5, 7, '', '----', '----', '', '----', ''),
+(3, 10, 13, '', '--', '--', '', '--', ''),
+(4, 2, 5, '', '--', '--', '', '--', ''),
+(5, 6, 9, '', '--', '--', '', '--', ''),
+(6, 9, 9, '', '--', '--', '', '--', ''),
+(7, 1, 4, '', '--', '--', '', '--', ''),
+(8, 4, 6, '', '----', '----', '', '----', ''),
+(9, 8, 9, '', '--', '--', '', '--', ''),
+(10, 3, 6, '', '--', '--', '', '--', '');
 
 -- --------------------------------------------------------
 
@@ -296,7 +319,7 @@ CREATE TABLE `tbl_data_riwayat_jabatan` (
 --
 
 INSERT INTO `tbl_data_riwayat_jabatan` (`id_riwayat_jabatan`, `id_pegawai`, `id_jenis_jabatan`, `nm_jabatan`, `id_jabatan`, `id_satuan_kerja`, `id_eselon`, `tmt_jabatan_rj`, `tanggal_sk_rj`, `tmt_pelantikan_rj`, `nomor_sk`) VALUES
-(12, 35, 1, 'KEPALA BKPSDM', 0, 186, 26, '0000-00-00', '0000-00-00', '0000-00-00', '');
+(1, 5, 1, 'Kasubag Perencanaan dan Keuangan Badan Kepegawaian dan Pengembangan SDM Kabupaten Buton Tengah', 0, 186, 27, '2018-12-12', '2012-12-12', '2017-12-12', '12345678');
 
 -- --------------------------------------------------------
 
@@ -323,7 +346,15 @@ CREATE TABLE `tbl_data_riwayat_pangkat` (
 --
 
 INSERT INTO `tbl_data_riwayat_pangkat` (`id_riwayat_pangkat`, `id_pegawai`, `id_pangkat`, `status`, `nomor_sk`, `tanggal_sk`, `tanggal_mulai`, `tanggal_selesai`, `masa_kerja`, `masa_kerja_bulan`, `masa_kerja_tahun`) VALUES
-(14, 35, 4, '', '', '--', '--', '--', '', 0, 0);
+(2, 5, 7, '', '', '----', '----', '----', '', 0, 0),
+(3, 10, 13, '', '', '--', '--', '--', '', 0, 0),
+(4, 2, 5, '', '', '--', '--', '--', '', 0, 0),
+(5, 6, 8, '', '', '--', '--', '--', '', 0, 0),
+(6, 9, 9, '', '', '--', '--', '--', '', 0, 0),
+(7, 1, 4, '', '', '--', '--', '--', '', 0, 0),
+(8, 4, 6, '', '', '--', '--', '--', '', 0, 0),
+(9, 8, 9, '', '', '--', '--', '--', '', 0, 0),
+(10, 3, 6, '', '', '--', '--', '--', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -358,37 +389,8 @@ CREATE TABLE `tbl_groups` (
 INSERT INTO `tbl_groups` (`id`, `name`, `description`) VALUES
 (1, 'admin', 'Administrator'),
 (2, 'members', 'General User'),
-(3, 'prodi', 'Program Studi'),
-(4, 'fakultas', 'Fakultas'),
-(5, 'rektor', 'Pimpinan Universitas'),
-(6, 'pr1', 'Wakil Rektor 1'),
-(7, 'pr2', 'Wakil Rektor 2'),
-(8, 'pr3', 'Wakil Rektor 3'),
-(9, 'pr4', 'Wakil Rektor 4'),
-(10, '54211', 'S1 Agroteknologi'),
-(11, '55201', 'S1 Teknik Informatika'),
-(12, '87203', 'S1 Pendidikan Ekonomi'),
-(13, '84202', 'S1 Pendidikan Matematika'),
-(14, '21201', 'S1 Teknik Mesin'),
-(15, '63201', 'S1 Ilmu Administrasi Negara'),
-(16, '61201', 'S1 Manajemen'),
-(17, '88203', 'S1 Pendidikan Bahasa Inggris'),
-(18, '69201', 'S1 Sosiologi'),
-(19, '22201', 'S1 Teknik Sipil'),
-(20, '74201', 'S1 Ilmu Hukum'),
-(21, '62201', 'S1 Akuntansi'),
-(22, '87201', 'S1 Pendidikan Sejarah'),
-(23, '54243', 'S1 Budidaya Perairan'),
-(24, '13201', 'S1 Kesehatan Masyarakat'),
-(25, '63101', 'S2 Ilmu Administrasi Negara'),
-(26, 'ekonomi', 'Fakultas Ekonomi'),
-(27, 'hukum', 'Fakultas Hukum'),
-(28, 'sospol', 'Fakultas Ilmu Sosial dan Ilmu Politik'),
-(29, 'fkip', 'Fakultas Keguruan dan Ilmu Pendidikan'),
-(30, 'fkm', 'Fakultas Kesehatan Masyarakat'),
-(31, 'perikanan', 'Fakultas Perikanan'),
-(32, 'pertanian', 'Fakultas Pertanian'),
-(33, 'teknik', 'Fakultas Teknik');
+(34, 'skpd', 'skpd'),
+(35, 'honorer', 'honorer');
 
 -- --------------------------------------------------------
 
@@ -398,6 +400,7 @@ INSERT INTO `tbl_groups` (`id`, `name`, `description`) VALUES
 
 CREATE TABLE `tbl_honorer` (
   `id_honorer` int(5) NOT NULL,
+  `kode_honorer` varchar(11) DEFAULT NULL,
   `nama` varchar(114) NOT NULL,
   `alamat` varchar(114) NOT NULL,
   `nomor_sk` varchar(50) NOT NULL,
@@ -405,6 +408,13 @@ CREATE TABLE `tbl_honorer` (
   `tmt` varchar(50) DEFAULT NULL,
   `no_hp` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tbl_honorer`
+--
+
+INSERT INTO `tbl_honorer` (`id_honorer`, `kode_honorer`, `nama`, `alamat`, `nomor_sk`, `id_lokasi_kerja`, `tmt`, `no_hp`) VALUES
+(27, '0000001', 'ARTHUR', 'BAUBAU', '12345678', '186', '2018-12-12', '085242826445');
 
 -- --------------------------------------------------------
 
@@ -420,7 +430,7 @@ CREATE TABLE `tbl_info_pt` (
   `kontak_1` varchar(50) DEFAULT NULL,
   `kontak_2` varchar(50) DEFAULT NULL,
   `kontak_3` varchar(50) DEFAULT NULL,
-  `kontak_4` varchar(50) DEFAULT NULL,
+  `kontak_4` varchar(114) DEFAULT NULL,
   `header_pt` varchar(114) DEFAULT NULL,
   `alamat_pt` varchar(114) DEFAULT NULL,
   `slogan` varchar(114) DEFAULT NULL,
@@ -433,7 +443,7 @@ CREATE TABLE `tbl_info_pt` (
 --
 
 INSERT INTO `tbl_info_pt` (`id_info_pt`, `nama_info_pt`, `alias_pt`, `kode_pt`, `kontak_1`, `kontak_2`, `kontak_3`, `kontak_4`, `header_pt`, `alamat_pt`, `slogan`, `logo_pt`, `logo_kecil_pt`) VALUES
-(1, 'Badan Kepegawaian dan Pengembangan SDM', 'SIMPEDA-BERKAH', '000012', '1111-11111-1111', '1111-11111-1111', 'Labungkari', 'Email: pemda_butontengah@yahoo.com', NULL, 'Jl. Gersamata No. 5 Lakudo Telp/Fax…………..', '', 'logo-badan-kepegawaian-dan-pengembangan-sumber-daya-manusia-kabupaten-buton-tengah-20180711-1531313307.png', 'logo.png');
+(1, 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 'SIMPEDA-BERKAH', '000012', '1111-11111-1111', '1111-11111-1111', 'bkpsdm@gmail.com', 'Telp....................../Fax...............Email: bkpsdm@gmail.com', NULL, 'Jl. Gersamata Lakudo', '', 'logo-badan-kepegawaian-dan-pengembangan-sumber-daya-manusia-kabupaten-buton-tengah-20190423-1556033099.png', 'logo.png');
 
 -- --------------------------------------------------------
 
@@ -521,8 +531,7 @@ CREATE TABLE `tbl_master_biaya_harian` (
 --
 
 INSERT INTO `tbl_master_biaya_harian` (`id_biaya_harian`, `id_provinsi`, `id_jabatan`, `biaya`) VALUES
-(2, 15, 8, 5000000),
-(3, 1, 6, 4000000);
+(1, 2, 8, 300000);
 
 -- --------------------------------------------------------
 
@@ -542,8 +551,7 @@ CREATE TABLE `tbl_master_biaya_hotel` (
 --
 
 INSERT INTO `tbl_master_biaya_hotel` (`id_biaya_hotel`, `id_provinsi`, `id_jabatan`, `biaya`) VALUES
-(5, 6, 7, 5000000),
-(6, 1, 6, 4000000);
+(1, 2, 8, 300000);
 
 -- --------------------------------------------------------
 
@@ -649,7 +657,7 @@ CREATE TABLE `tbl_master_jabatan` (
 --
 
 INSERT INTO `tbl_master_jabatan` (`id_jabatan`, `nama_jabatan`, `level`) VALUES
-(8, 'Eselon II.b, Wakil Ketua/Wakil Ketua TP-PKK/Dekranasda/BKMT/LASQI', 4),
+(8, 'ESELON II.B, WAKIL KETUA/WAKIL KETUA TP-PKK/DEKRANASDA/BKMT/LASQI', 4),
 (7, 'Sekretaris Daerah', 3),
 (5, 'Bupati', 1),
 (6, 'Wakil Bupati', 2),
@@ -759,6 +767,27 @@ INSERT INTO `tbl_master_lokasi_pelatihan` (`id_lokasi_pelatihan`, `nama_lokasi`)
 (15, 'LAN MAKASAR'),
 (16, 'LAIN-LAIN'),
 (17, 'LOKASI PELATIHAN');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_master_mata_anggaran`
+--
+
+CREATE TABLE `tbl_master_mata_anggaran` (
+  `id_mata_anggaran` int(11) NOT NULL,
+  `kode_anggaran` varchar(50) NOT NULL,
+  `mata_anggaran` int(11) NOT NULL,
+  `tahun` int(11) NOT NULL,
+  `keterangan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tbl_master_mata_anggaran`
+--
+
+INSERT INTO `tbl_master_mata_anggaran` (`id_mata_anggaran`, `kode_anggaran`, `mata_anggaran`, `tahun`, `keterangan`) VALUES
+(1, '123454', 120000000, 2018, 'ANGGARAN BESAR');
 
 -- --------------------------------------------------------
 
@@ -1375,18 +1404,18 @@ INSERT INTO `tbl_master_penghargaan` (`id_penghargaan`, `nama_penghargaan`) VALU
 CREATE TABLE `tbl_master_pengikut` (
   `id_pengikut` int(11) NOT NULL,
   `id_sppd` int(11) NOT NULL,
-  `id_pegawai` int(11) NOT NULL
+  `id_pegawai` int(11) NOT NULL,
+  `lvl` varchar(10) NOT NULL DEFAULT 'pegawai'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tbl_master_pengikut`
 --
 
-INSERT INTO `tbl_master_pengikut` (`id_pengikut`, `id_sppd`, `id_pegawai`) VALUES
-(1, 3, 1),
-(2, 3, 12),
-(3, 3, 4),
-(4, 3, 12);
+INSERT INTO `tbl_master_pengikut` (`id_pengikut`, `id_sppd`, `id_pegawai`, `lvl`) VALUES
+(2, 8, 39, 'pegawai'),
+(3, 8, 5, 'honorer'),
+(4, 5, 5, 'honorer');
 
 -- --------------------------------------------------------
 
@@ -1453,19 +1482,62 @@ CREATE TABLE `tbl_master_provinsi` (
 --
 
 INSERT INTO `tbl_master_provinsi` (`id_provinsi`, `nm_provinsi`, `kode_provinsi`) VALUES
-(1, 'ACEH', 1),
-(5, 'SUMATERA UTARA', 2),
-(6, 'RIAU', 3),
-(7, 'KEPULAUAN RIAU', 4),
-(8, 'JAMBI', 5),
-(9, 'SUMATERA UTARA', 6),
-(10, 'SUMATERA SELATAN', 7),
-(11, 'LAMPUNG', 7),
-(12, 'BENGKULU', 8),
-(13, 'BANGKA BELITUNG', 9),
-(14, 'BANTEN', 10),
-(15, 'JAWA BARAT', 11),
-(16, 'DKI JAKARTA', 12);
+(2, 'LAKUDO', 1),
+(3, 'GU ', 2),
+(4, 'SANGIAWAMBULU', 3),
+(5, 'MAWASANGKA TIMUR', 4),
+(6, 'MAWASANGKA TENGAH ', 5),
+(7, 'MAWASANGKA', 6),
+(8, 'TALAGA RAYA', 7),
+(9, 'BAUBAU ', 8),
+(10, 'BUTON ', 9),
+(11, 'BUTON SELATAN ', 10),
+(12, 'WAKATOBI', 11),
+(13, 'MUNA', 12),
+(14, 'MUNA BARAT', 13),
+(15, 'BUTON UTARA', 14),
+(16, 'BOMBANA', 15),
+(17, 'KONAWE SELATAN ', 16),
+(18, 'KONAWE KEPULAUAN ', 17),
+(19, 'KOTA KENDARI', 18),
+(20, 'KONAWE', 19),
+(21, 'KONAWE UTARA', 20),
+(22, 'KOLAKA TIMUR', 21),
+(23, 'KOLAKA', 22),
+(24, 'KOLAKA UTARA', 23),
+(25, 'ACEH ', 24),
+(26, 'SUMATERA UTARA', 25),
+(27, 'RIAU', 26),
+(28, 'KEPULAUAN RIAU', 27),
+(29, 'JAMBI ', 28),
+(30, 'SUMATERA BARAT', 29),
+(31, 'SUMATERA SELATAN ', 30),
+(32, 'LAMPUNG', 31),
+(33, 'BENGKULU ', 32),
+(34, 'BANGKA BELITUNG', 33),
+(35, 'BANTEN', 34),
+(36, 'JAWA BARAT ', 35),
+(37, 'DKI. JAKARTA', 36),
+(38, 'JAWA TENGAH ', 37),
+(39, 'DI. YOGYAKARTA', 38),
+(40, 'JAWA TIMUR ', 39),
+(41, 'BALI', 40),
+(42, 'NUSA TENGGARA BARAT ', 41),
+(43, 'NUSA TENGGARA TIMUR', 42),
+(44, 'KALIMANTAN BARAT ', 43),
+(45, 'KALIMANTAN TENGAH ', 44),
+(46, 'KALIMANTAN SELATAN ', 45),
+(47, 'KALIMANTAN TIMUR', 46),
+(48, 'KALIMANTAN UTARA', 47),
+(49, 'SULAWESI UTARA', 48),
+(50, 'GORONTALO', 49),
+(51, 'SULAWESI BARAT', 50),
+(52, 'SULAWESI SELATAN ', 51),
+(53, 'SULAWESI TENGAH', 52),
+(54, 'MALUKU', 53),
+(55, 'MALUKU UTARA', 54),
+(56, 'PAPUA ', 55),
+(57, 'PAPUA BARAT', 56);
 
 -- --------------------------------------------------------
 
@@ -1566,7 +1638,7 @@ CREATE TABLE `tbl_master_status_pegawai` (
 --
 
 INSERT INTO `tbl_master_status_pegawai` (`id_status_pegawai`, `nama_status`) VALUES
-(1, 'PENSIUN'),
+(8, 'PENSIUN'),
 (3, 'AKTIF'),
 (4, 'MENINGGAL'),
 (5, 'PNS AKTIF'),
@@ -1585,6 +1657,20 @@ CREATE TABLE `tbl_master_unit_kerja` (
   `eselon` varchar(50) NOT NULL,
   `parent_unit` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_mata_anggaran`
+--
+
+CREATE TABLE `tbl_mata_anggaran` (
+  `id_mata_anggaran` int(11) NOT NULL,
+  `mata_anggaran` int(11) NOT NULL,
+  `jumlah_anggaran` int(11) NOT NULL,
+  `tahun_anggaran` varchar(5) NOT NULL,
+  `keterangan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -1614,6 +1700,80 @@ CREATE TABLE `tbl_rincian_biaya` (
 INSERT INTO `tbl_rincian_biaya` (`id_rincian_biaya`, `id_sppd`, `tgl_ta_berangkat`, `pesawat_berangkat`, `no_tiket_berangkat`, `kode_book_berangkat`, `harga_berangkat`, `tgl_ta_kembali`, `pesawat_kembali`, `no_tiket_kembali`, `kode_book_kembali`, `harga_kembali`) VALUES
 (1, 3, '2018-01-07', 'WIng', '12345678987654', 12345678, 1200000, 20180107, 'Garuda', '1234567898765432', '2345678765432', 1200000),
 (2, 2, '2018-10-10', 'Garuda', '123456787654', 2345678, 1200000, 20180107, 'Wing', '1234567898765432', '12345676543', 1200000);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_sppd_honorer`
+--
+
+CREATE TABLE `tbl_sppd_honorer` (
+  `id_sppd_honorer` int(11) NOT NULL,
+  `id_jenis_perjadin` int(11) NOT NULL,
+  `tgl_sppd` varchar(114) NOT NULL,
+  `tahun` int(4) NOT NULL,
+  `id_honorer` int(11) NOT NULL,
+  `no_perjadin` varchar(114) NOT NULL,
+  `nomor` varchar(114) NOT NULL,
+  `tgl_bukti` varchar(114) NOT NULL,
+  `maksud_perjadin` text NOT NULL,
+  `tujuan_perjadin` text NOT NULL,
+  `kd_anggaran` varchar(114) DEFAULT NULL,
+  `id_jabatan` int(11) NOT NULL,
+  `tujuan` varchar(114) NOT NULL,
+  `tgl_berangkat` varchar(114) NOT NULL,
+  `tgl_kembali` varchar(114) NOT NULL,
+  `lama_hari` varchar(114) NOT NULL,
+  `uang_perhari` int(20) NOT NULL,
+  `nama_hotel` varchar(114) NOT NULL,
+  `uang_hotel` int(11) NOT NULL,
+  `total_uang_hotel` int(11) NOT NULL,
+  `total_uang_harian` int(11) NOT NULL,
+  `keterangan_anggaran` text NOT NULL,
+  `uraian_kas` text NOT NULL,
+  `tempat_berangkat` varchar(114) NOT NULL,
+  `pejabat_yang_memerintah` varchar(114) NOT NULL,
+  `no_rek` varchar(114) NOT NULL,
+  `id_pengikut` int(11) NOT NULL,
+  `instansi` varchar(114) NOT NULL,
+  `id_bendahara` varchar(114) NOT NULL,
+  `nip_bendahara` varchar(114) NOT NULL,
+  `pejabat_mengetahui` varchar(114) NOT NULL,
+  `nip_pejabat_mengetahui` varchar(114) NOT NULL,
+  `dasar_pelaksanaan` text NOT NULL,
+  `dasar_pelaksanaan_2` text NOT NULL,
+  `dasar_pelaksanaan_3` text NOT NULL,
+  `isi_laporan` text NOT NULL,
+  `alat_angkutan` varchar(114) NOT NULL,
+  `biaya_pergi` int(11) NOT NULL,
+  `biaya_pulang` int(11) NOT NULL,
+  `biaya_lain` int(11) NOT NULL,
+  `biaya_akomodasi_hotel` int(11) NOT NULL,
+  `biaya_representasi` int(11) NOT NULL,
+  `jumlah_biaya` int(11) NOT NULL,
+  `tgl_ta_berangkat` varchar(114) NOT NULL,
+  `pesawat_berangkat` varchar(114) NOT NULL,
+  `no_tiket_berangkat` varchar(114) NOT NULL,
+  `kode_book_berangkat` varchar(114) NOT NULL,
+  `harga_berangkat` int(11) NOT NULL,
+  `tgl_ta_kembali` varchar(114) NOT NULL,
+  `pesawat_kembali` varchar(114) NOT NULL,
+  `no_tiket_kembali` varchar(114) NOT NULL,
+  `kode_book_kembali` varchar(114) NOT NULL,
+  `harga_kembali` int(11) NOT NULL,
+  `jumlah_dibayarkan` int(11) NOT NULL,
+  `biaya_sisa` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tbl_sppd_honorer`
+--
+
+INSERT INTO `tbl_sppd_honorer` (`id_sppd_honorer`, `id_jenis_perjadin`, `tgl_sppd`, `tahun`, `id_honorer`, `no_perjadin`, `nomor`, `tgl_bukti`, `maksud_perjadin`, `tujuan_perjadin`, `kd_anggaran`, `id_jabatan`, `tujuan`, `tgl_berangkat`, `tgl_kembali`, `lama_hari`, `uang_perhari`, `nama_hotel`, `uang_hotel`, `total_uang_hotel`, `total_uang_harian`, `keterangan_anggaran`, `uraian_kas`, `tempat_berangkat`, `pejabat_yang_memerintah`, `no_rek`, `id_pengikut`, `instansi`, `id_bendahara`, `nip_bendahara`, `pejabat_mengetahui`, `nip_pejabat_mengetahui`, `dasar_pelaksanaan`, `dasar_pelaksanaan_2`, `dasar_pelaksanaan_3`, `isi_laporan`, `alat_angkutan`, `biaya_pergi`, `biaya_pulang`, `biaya_lain`, `biaya_akomodasi_hotel`, `biaya_representasi`, `jumlah_biaya`, `tgl_ta_berangkat`, `pesawat_berangkat`, `no_tiket_berangkat`, `kode_book_berangkat`, `harga_berangkat`, `tgl_ta_kembali`, `pesawat_kembali`, `no_tiket_kembali`, `kode_book_kembali`, `harga_kembali`, `jumlah_dibayarkan`, `biaya_sisa`) VALUES
+(1, 2, '2018-12-18', 2018, 5, '090/ 60 /BKPSDM.XII/2017', '', '2018-12-18', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Kendari', '', 6, 'Kota Bau-Bau', '2018-12-12', '2018-12-12', '7', 4000000, 'Calista', 4000000, 28000000, 28000000, '', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Baubau', 'KEPALA DINAS', '30.03.5.2.2.15.02', 0, 'Kendari', 'LA DEU SAYA', '123123123112312', 'SAMRIN, S.Pd., M.Pd', '', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '', '', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Mobil - Kapal Laut- Pesawat', 4500000, 15750000, 0, 0, 0, 92000000, '2018-12-12', 'LION AIR', '1233', '12000', 1000000, '2018-12-12', 'WINGS', '123333', '120000', 0, 92000000, 0),
+(2, 2, '2018-11-25', 2018, 5, '090/ 60 /BKPSDM.XII/2017', '', '2017-12-22', 'ASD', 'DSA', '', 6, 'Jakarta / Kendari', '2018-12-12', '2018-12-12', '7', 4000000, 'Zahra Hotel', 4000000, 28000000, 28000000, '', 'UIO', 'Labungkari', 'KEPALA DINAS', '30.03.5.2.2.15.02', 0, 'BKPSDM', 'LA DEU SAYA', '4500000', 'SAMRIN, S.Pd., M.Pd', '', 'UIO', '', '', 'OP', 'Mobil - Kapal Laut- Pesawat', 4500000, 15750000, 0, 0, 0, 76370000, '2018-12-12', 'LION AIR', '1233', '12000', 1000000, '2018-12-12', 'WINGS', '123333', '120000', 0, 5000000, 71370000),
+(3, 1, '2019-04-19', 2019, 26, '090/ 60 /BKPSDM.XII/2017', '', '2017-12-22', 'asd', 'asd', NULL, 8, 'Kota Bau-Bau', '2018-12-12', '2018-12-12', '2', 300000, 'Zahra Hotel', 300000, 600000, 600000, '', 'ads', 'Labungkari', 'KEPALA DINAS', '30.03.5.2.2.15.02', 0, 'BKPSDM', 'LA DEU SAYA', '4500000', 'SAMRIN, S.Pd., M.Pd', '', 'asd', '', '', 'asd', 'Mobil - Kapal Laut- Pesawat', 200000, 300000, 0, 0, 0, 1700000, '2018-12-12', 'LION AIR', '1233', '12000', 1000000, '2018-12-12', 'WINGS', '123333', '120000', 1000000, 1700000, 0),
+(4, 1, '2019-07-12', 2019, 27, '090/ 60 /BKPSDM.XII/2017', '', '2017-12-22', 'TES', 'TES', NULL, 8, 'Kota Bau-Bau', '2018-12-12', '2018-12-12', '2', 300000, 'Zahra Hotel', 300000, 600000, 600000, '', 'FSDF', 'Labungkari', 'KEPALA DINAS', '30.03.5.2.2.15.02', 0, 'BKPSDM', 'LA DEU SAYA', '4500000', 'SAMRIN, S.Pd., M.Pd', '', 'TRES', '', '', 'GDGG', 'Mobil - Kapal Laut- Pesawat', 4500000, 4500000, 0, 0, 0, 10200000, '2018-11-21', 'LION AIR', '1233', '12000', 1000000, '2019-05-22', 'WINGS', '123333', '120000', 0, 10200000, 0);
 
 -- --------------------------------------------------------
 
@@ -1688,7 +1848,11 @@ CREATE TABLE `tbl_sppd_ld` (
 --
 
 INSERT INTO `tbl_sppd_ld` (`id_sppd_ld`, `id_jenis_perjadin`, `tgl_sppd`, `tahun`, `id_pegawai`, `no_perjadin`, `nomor`, `tgl_bukti`, `maksud_perjadin`, `tujuan_perjadin`, `kd_anggaran`, `id_golongan`, `id_jabatan`, `id_pangkat`, `tujuan`, `tgl_berangkat`, `tgl_kembali`, `lama_hari`, `uang_perhari`, `nama_hotel`, `uang_hotel`, `total_uang_hotel`, `total_uang_harian`, `keterangan_anggaran`, `uraian_kas`, `tempat_berangkat`, `pejabat_yang_memerintah`, `id_eselon`, `no_rek`, `id_pengikut`, `instansi`, `id_bendahara`, `nip_bendahara`, `pejabat_mengetahui`, `nip_pejabat_mengetahui`, `biaya_riil`, `dasar_pelaksanaan`, `dasar_pelaksanaan_2`, `dasar_pelaksanaan_3`, `isi_laporan`, `alat_angkutan`, `biaya_pergi`, `biaya_pulang`, `biaya_lain`, `biaya_akomodasi_hotel`, `biaya_representasi`, `jumlah_biaya`, `tgl_ta_berangkat`, `pesawat_berangkat`, `no_tiket_berangkat`, `kode_book_berangkat`, `harga_berangkat`, `tgl_ta_kembali`, `pesawat_kembali`, `no_tiket_kembali`, `kode_book_kembali`, `harga_kembali`, `jumlah_dibayarkan`, `biaya_sisa`) VALUES
-(4, 1, '2018-07-18', 2018, 35, '090/ 60 /BKPSDM.XII/2017', '090/60/2017', '2017-12-22', 'Menyampaikan Laporan Hasil Pelaksanaan Seleksi Terbuka Jabatan Pimpinan Tinggi Pratama ( JPTP) Lingkup Pemerintah Kabupaten Buton Tengah Tahun 2017 di Kantor KASN Jakarta', 'Mengikuti Rapat Evaluasi Raperda RPJPD dan RPJMD Kabupaten Buton Tengah di Kendari pada Tanggal 28 Desember 2017', '090/60 /BKPSDM.XII/2017	', 4, 5, 4, 'Jakarta / Kendari', '26-12-2017', '29 Desember 2017', '2', 5000000, 'Zahra Hotel', 5000000, 10000000, 10000000, 'Belanja Biaya Perjalanan dinas An. SAMRIN, S.Pd., M.Pd, SP ke Jakarta / Kendari untuk Menyampaikan Laporan Hasil Pelaksanaan Seleksi Terbuka Jabatan Pimpinan Tinggi Pratama ( JPTP) Lingkup Pemerintah Kabupaten Buton Tengah Tahun 2017 di Kantor KASN Jakarta  serta Mengikuti Rapat Evaluasi Raperda RPJPD dan RPJMD Kabupaten Buton Tengah di Kendari  SPPD No. 090/ 60 /BKPSDM.XII/2017 Tgl. 22 Desember 2017 dan Surat Tugas No. 094/ 2920 /2017  tgl. 22 Desember 2017, terlampir.', 'Belanja Biaya Perjalanan dinas An. SAMRIN, S.Pd., M.Pd, SP ke Jakarta / Kendari untuk Menyampaikan Laporan Hasil Pelaksanaan Seleksi Terbuka Jabatan Pimpinan Tinggi Pratama ( JPTP) Lingkup Pemerintah Kabupaten Buton Tengah Tahun 2017 di Kantor KASN Jakarta  serta Mengikuti Rapat Evaluasi Raperda RPJPD dan RPJMD Kabupaten Buton Tengah di Kendari  SPPD No. 090/ 60 /BKPSDM.XII/2017 Tgl. 22 Desember 2017 dan Surat Tugas No. 094/ 2920 /2017  tgl. 22 Desember 2017, terlampir.', 'Labungkari', 'KEPALA DINAS', 24, '30.03.5.2.2.15.02', 0, 'BKPSDM', 'LA DEU SAYA', '19690505 199004 1 001', 'SAMRIN, S.Pd., M.Pd', '19690505 199004 1 001', 120000, 'Surat Tugas Nomor : 094/2920 /2017. Tanggal 22 Desember 2017', 'SPPD Nomor : 090/ 60 /BKPSDM.XII/2017 Tanggal 22 Desember 2017', NULL, 'Komisi Aparatur Sipil Negara telah menerima Dokumen hasil Seleksi JPTP buton Tengah dan mengapresiasikan langkah - langkah Panitia Seleksi dalam pelaksanaan Seleksi Namun demikian KASN melalui Asisten Komisioner Bidang Monitoring dan Evaluasi meminta daftra Nilai tiap peserta baik dari Asessor maupun dari Panitia Seleksi. Nilai - nilai tersebut kami sanggupi untuk segera menirimnya. Daftar tersebut menjadi salah saru acuan atau bahan pertimbangan KASN dalam mengeluarkan rekomendasi pada Bupati Buton Tengah untuk segera melaksanakan pelantikan.', 'Mobil - Kapal Laut- Pesawat', 4500000, 15750000, 100000, NULL, 10000, 40370000, '12-12-20018', 'LION AIR', '1233', '12000', 1000000, '2018-12-12', 'WINGS', '123333', '120000', 0, 40000, 40330000);
+(5, 2, '2018-11-25', 2018, 35, '090/ 60 /BKPSDM.XII/2017', '', '2017-12-22', 'ASD', 'DSA', NULL, 4, 6, 4, 'Jakarta / Kendari', '2018-12-12', '2018-12-12', '7', 4000000, 'Zahra Hotel', 4000000, 28000000, 28000000, NULL, 'UIO', 'Labungkari', 'KEPALA DINAS', 24, '30.03.5.2.2.15.02', 0, 'BKPSDM', 'LA DEU SAYA', '4500000', 'SAMRIN, S.Pd., M.Pd', '', 120000, 'UIO', 'IOP', 'IOP', 'OP', 'Mobil - Kapal Laut- Pesawat', 4500000, 15750000, 0, NULL, 0, 76370000, '2018-12-12', 'LION AIR', '1233', '12000', 1000000, '2018-12-12', 'WINGS', '123333', '120000', 1000000, 5000000, 71370000),
+(6, 1, '2018-11-25', 2018, 35, '', '', '', '', '', NULL, 4, 1, 4, '', '', '', '', 0, '', 0, 0, 0, NULL, '', '', '', 24, '', 0, '', '', '', '', '', 0, '', '', '', '', '', 0, 0, 0, NULL, 0, 0, '', '', '', '', 0, '', '', '', '', 0, 0, 0),
+(7, 2, '2018-12-17', 2018, 36, '090/ 60 /BKPSDM.XII/2017', '', '2017-12-22', 'asd', 'asds', NULL, 7, 6, 1, 'Kota Bau-Bau', '2018-12-12', '2018-12-12', '7', 4000000, 'Zahra Hotel', 4000000, 28000000, 28000000, NULL, 'ASDASFHG', 'Labungkari', 'KEPALA DINAS', 23, '30.03.5.2.2.15.02', 0, 'BKPSDM', 'LA DEU SAYA', '4500000', 'SAMRIN, S.Pd., M.Pd', '', 15750000, 'asdss', 'eweq', 'QW23EEQ', '12312QEWQEQ', 'Mobil - Kapal Laut- Pesawat', 4500000, 4500000, 0, NULL, 0, 80750000, '2018-12-12', 'LION AIR', '1233', '12000', 1000000, '2018-12-12', 'WINGS', '123333', '120000', 2000000, 70750000, 10000000),
+(8, 2, '2018-12-18', 2018, 39, '090/ 60 /BKPSDM.XII/2017', '', '2018-12-18', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Kendari', '', 10, 6, 2, 'Kota Bau-Bau', '2018-12-12', '2018-12-12', '7', 4000000, 'Calista', 4000000, 28000000, 28000000, NULL, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Baubau', 'KEPALA DINAS', 25, '30.03.5.2.2.15.02', 0, 'Kendari', 'LA DEU SAYA', '123123123112312', 'SAMRIN, S.Pd., M.Pd', '', 15750000, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Mobil - Kapal Laut- Pesawat', 4500000, 15750000, 0, NULL, 0, 92000000, '2018-12-12', 'LION AIR', '1233', '12000', 1000000, '2018-12-12', 'WINGS', '123333', '120000', 0, 92000000, 0),
+(9, 1, '2018-11-21', 2018, 5, '090/171/BKPSDM/XI/2018', '', '2018-11-21', 'Mengikuti Bimbingan Teknis Sistem Akuntabilitas Kinerja Instansi Pemerintah (SAKIP) tanggal 22 - 24 Nopember 2018 di Baubau.', '', '', 7, 9, 7, 'Kota Bau-Bau', '2018-11-21', '2018-11-23', '2', 300000, 'Calista', 300000, 600000, 600000, NULL, 'Belanja perjalanan dinas a.n. HARJUN HATMA,SP ke Baubau  dalam rangka Mengikuti Bimbingan Teknis Sistem Akuntabilitas Kinerja Instansi Pemerintah (SAKIP) tanggal 22 - 24 Nopember 2018 di Baubau., berdasarkan SPPD Nomor 090/171/BKPSDM/XI/2018,Tanggal 21 Nopember 2018., Dan Surat Tugas Nomor 094/61/2018,Tanggal 21 Nopember 2018.  terlampir.', 'Labungkari', 'SAMRIN,SPd.MPd', 29, '05.03.5.2.2.15.02', 0, 'BKPSDM', 'MUHAMMAD SAHRONI', '19851001 201407 1 001', 'SAMRIN,SPd.MPd', '19740115 199702 1002', 300000, 'Dokumen Pelaksanaan Anggaran (DPA-SKPD) Badan Kepegawaian dan Pengembangan Sumberdaya Manusia Kabupaten  Buton Tengah TA. 2018 ', 'Surat Sekretaris Daerah Kabupaten Buton Tengah Nomor 005/1113/2018 tanggal   19 Nopember  2018', '-', 'Kegiatan dimulai dengan Sosialisasi sistim perencanaan pembangunan berdasarkan Peraturan Menteri Dalam Negeri Nomor 23 Tahun 2013 tentang Pedoman Penyusunan, Pengendalian dan Evaluasi Rencana Kerja Pembangunan Daerah Tahun 2014 dan Peraturan Presiden Nomor 2 Tahun 2015 tentang RPJMN Tahun 2015-2019 oleh Sekretaris Bapedda Propinsi Sulawesi Tenggara', 'Mobil - Kapal Laut/Speed', 200000, 300000, 0, NULL, 0, 2000000, '2018-11-21', '-', '-', '-', 0, '2018-11-23', '-', '-', '-', 0, 2000000, 0);
 
 -- --------------------------------------------------------
 
@@ -1715,12 +1879,14 @@ CREATE TABLE `tbl_users` (
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   `company` varchar(100) DEFAULT NULL,
+  `lvl` int(11) NOT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `hostname` varchar(20) DEFAULT NULL,
   `port` varchar(20) DEFAULT NULL,
   `userfeeder` varchar(114) DEFAULT NULL,
   `passfeeder` varchar(114) DEFAULT NULL,
   `jabatan` int(11) NOT NULL,
+  `id_pegawai` int(11) DEFAULT NULL,
   `profile` varchar(114) NOT NULL DEFAULT 'avatar.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1728,9 +1894,43 @@ CREATE TABLE `tbl_users` (
 -- Dumping data untuk tabel `tbl_users`
 --
 
-INSERT INTO `tbl_users` (`id`, `id_mhs_pt`, `ip_address`, `username`, `password`, `repassword`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `hostname`, `port`, `userfeeder`, `passfeeder`, `jabatan`, `profile`) VALUES
-(1, NULL, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'password', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1532229318, 1, 'Admin', 'istrator', 'ADMIN', '08239566666', 'localhost', '8082', '091006', 'palagimatA', 3, 'avatar.jpg'),
-(15, NULL, '::1', 'ejhayoe', '$2y$08$sMK/KvMzOXPZBanMhhAggu4A6FQ2EWRNvY4hpJNoGpjgzgqhZF9xW', 'ejhayoe', NULL, 'admin@admin.com', NULL, NULL, NULL, NULL, 1519736735, NULL, 1, 'Reza', 'Rafiq', 'Sistem Informasi Kepegawaian', '123456789', NULL, NULL, NULL, NULL, 0, 'avatar.jpg');
+INSERT INTO `tbl_users` (`id`, `id_mhs_pt`, `ip_address`, `username`, `password`, `repassword`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `lvl`, `phone`, `hostname`, `port`, `userfeeder`, `passfeeder`, `jabatan`, `id_pegawai`, `profile`) VALUES
+(1, NULL, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 'password', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1558143413, 1, 'Admin', 'istrator', 'ADMIN', 0, '08239566666', 'localhost', '8082', '091006', 'palagimatA', 3, NULL, 'avatar.jpg'),
+(21, NULL, '::1', '19740115 199702 1 002', '$2y$08$xUVhrI19mQbdVTySKoSOlu9SuIhI47g1c61VNAvyfSbl517pv31ma', 'password', NULL, '', NULL, NULL, NULL, NULL, 1545714664, NULL, 1, 'SAMRIN', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 0, '123456789', NULL, NULL, NULL, NULL, 0, 1, 'avatar.jpg'),
+(22, NULL, '::1', '19660204 199203 1 011', '$2y$08$DDKB0yUi0aGI5Kvv.6AroOVnheAcPrSFLWbbV/5y89alZ5SS25Ijq', 'password', NULL, '', NULL, NULL, NULL, NULL, 1545714714, 1545742121, 1, 'LA ANCE PAULUS', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 0, '123456789', NULL, NULL, NULL, NULL, 0, 2, 'avatar.jpg'),
+(23, NULL, '::1', '19721231 200701 1 093', '$2y$08$aDYQ6AfmZP0ePcashsx3AuUqD7V35ZbKeNCc.J6fZKqOu8QwODPfK', 'password', NULL, '', NULL, NULL, NULL, NULL, 1545714755, NULL, 1, 'ZAHINUDDIN', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 0, '123456789', NULL, NULL, NULL, NULL, 0, 3, 'avatar.jpg'),
+(24, NULL, '::1', '19771231 201001 1 053', '$2y$08$pf0xg1cjQ8gbf5Hmxp5y/O79oVgjExLnZU32p4Ha4VSoRDb/qNJxC', 'password', NULL, '', NULL, NULL, NULL, NULL, 1545714792, NULL, 1, 'SARIFUDDIN FANTA', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 0, '123456789', NULL, NULL, NULL, NULL, 0, 4, 'avatar.jpg'),
+(25, NULL, '::1', '19760604 201001 1 019', '$2y$08$x8zYPC2POFCreDkgmzrGQOOjkJoIGHRDddJkB3VqHE6SOECVHcuKq', 'password', NULL, '', NULL, NULL, NULL, NULL, 1545714821, NULL, 1, 'HARJUN HATMA', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 0, '123456789', NULL, NULL, NULL, NULL, 0, 5, 'avatar.jpg'),
+(26, NULL, '::1', '19751115 201407 1 001', '$2y$08$JSxKVlISMO.RZHW3uo.LKujPaGrdQhFHFkxH8bLX9xTTz140BBj0C', 'password', NULL, '', NULL, NULL, NULL, NULL, 1545714854, NULL, 1, 'MUHAMMAD KASIM KAMPO', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 0, '123456789', NULL, NULL, NULL, NULL, 0, 6, 'avatar.jpg'),
+(27, NULL, '::1', '19840713 200701 2 005', '$2y$08$52d/EcS6dj1Lihyuk57ZaeDbkg1S6.bgLEaf1m3RvGsDMDb5KW49S', 'password', NULL, '', NULL, NULL, NULL, NULL, 1545714887, NULL, 1, 'ASTUTI AHMAD', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 0, '123456789', NULL, NULL, NULL, NULL, 0, 7, 'avatar.jpg'),
+(28, NULL, '::1', '19721206 201212 2 001', '$2y$08$mf11CYh/T4gf.G3oUK8tl.BD.N7MWt6ajUR7szTj69JI1umU4ZTd2', 'password', NULL, '', NULL, NULL, NULL, NULL, 1545714929, NULL, 1, 'SUHARNI', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 0, '123456789', NULL, NULL, NULL, NULL, 0, 8, 'avatar.jpg'),
+(29, NULL, '::1', '19851001 201407 1 001', '$2y$08$xMavV0./0Y35tAjRD0A28e.XAOM9AaQMnqZytdXtlLa6evmfvzzoS', 'password', NULL, '', NULL, NULL, NULL, NULL, 1545714984, NULL, 1, 'MUHAMMAD SAHRONI', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 0, '123456789', NULL, NULL, NULL, NULL, 0, 9, 'avatar.jpg'),
+(30, NULL, '::1', '19620220 201407 1 001', '$2y$08$tANMQ63VF/yC4pEY08/D4.R6NGYiVCdxvG3cU0kIAj9sDbKkFrQ0O', 'password', NULL, '', NULL, NULL, NULL, NULL, 1545715015, NULL, 1, 'LA ALIYANA', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 0, '123456789', NULL, NULL, NULL, NULL, 0, 10, 'avatar.jpg'),
+(31, NULL, '::1', '0000002', '$2y$08$Pq.M3lqNH4kD7MadttqKkuYoL9PQMtPzYskPNKKvIF0VVd4XdlUzW', 'x2vpc', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545715764, NULL, 1, 'ABDUL MALIK, S.T.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 2, 'avatar.jpg'),
+(32, NULL, '::1', '0000003', '$2y$08$Lf2QaM9w.owDk9OTRvfkbOshFol7vgjGw29fJsUoAo4lizrTILUD6', 'vpcaf', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545715777, NULL, 1, 'HASAN SAFEI, S.E.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 3, 'avatar.jpg'),
+(33, NULL, '::1', '0000004', '$2y$08$CjmL9hd2B.agqBqCYVfOR.7bgonWCH6xdwjrjFPe7P2CJb00spmse', '4rp8t', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545715782, NULL, 1, 'RAJIMAN, S.H., M.H.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 4, 'avatar.jpg'),
+(34, NULL, '::1', '0000005', '$2y$08$PdLaSWLpvtVrP1.QiEvKeeOQEOPGQ6xRUh7Iy8m4cLmxieUceBVXG', 'd4f1x', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545715790, NULL, 1, 'HASNAWATI, S.T.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 5, 'avatar.jpg'),
+(35, NULL, '::1', '0000006', '$2y$08$tCxO/9SHoFkybKLJH.TzV.VmhwaFuKP8e72C671brDlFjCVfjUnsW', 'gkhu7', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545715797, NULL, 1, 'SYARIFUDDIN , A.Md. Kom.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 6, 'avatar.jpg'),
+(36, NULL, '::1', '0000007', '$2y$08$yWiAmSwyncOEoLm/XohdqO9gaVdnCizwHtTa83UAMHLThdkGuBb3W', 'tdxbp', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545715805, NULL, 1, 'SARMINA BAAKI, S.E.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 7, 'avatar.jpg'),
+(37, NULL, '::1', '0000008', '$2y$08$E2g6Ooz0h5xfJGWDLH6yBuEzZkMSazS1RsCPXEUBNKW76BcCMriWO', 'gj9dw', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545715813, NULL, 1, 'SARTINI', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 8, 'avatar.jpg'),
+(38, NULL, '::1', '0000009', '$2y$08$SB/Y0HvUDcf7qxwsHSJ5VOUOu.Lv2Os9uqWCZmDVk9SuzzbI5q2TO', 'i1dh7', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545715821, NULL, 1, 'SILSIUS EDI, S.Pd.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 9, 'avatar.jpg'),
+(39, NULL, '::1', '0000010', '$2y$08$XHP1uTjZC1vr30U6pZzBOurvEDcrbgZfVNxuwZGSNDQYKChheKqr.', '3tdfd', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545715829, NULL, 1, 'MUHLIS DARMANTO, S.Psi.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 10, 'avatar.jpg'),
+(40, NULL, '::1', '0000011', '$2y$08$AImUQNxQPbKd1m5j2aGsGOdDvFZKGiwmHhYnEPQFZchzN1cNDN3jG', 'abjdw', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545715837, NULL, 1, 'NURAIDA, S.Si.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 11, 'avatar.jpg'),
+(41, NULL, '::1', '0000012', '$2y$08$xs2xs8hY/98CiXppm5aOhuivCAh4O/kMCL1GSlsdaY6S5QAYuMOry', 'if39o', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545715844, NULL, 1, 'ARIFUDDIN, S.S.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 12, 'avatar.jpg'),
+(42, NULL, '::1', '0000013', '$2y$08$9UGMzXG2UQU038Op3QOh9.rwB125Ske1XEZWMuLr/xLlpD7Pdnjlq', 'dwe29', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545715943, NULL, 1, 'NURAIDA, S.Si.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 13, 'avatar.jpg'),
+(43, NULL, '::1', '0000014', '$2y$08$qwNkY2W.3s/X4P2VdCpiiOMG/ReIDYQFLDmNJ.SMCMWxJQe5xThdC', 'vydfg', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545716095, NULL, 1, 'SYARIFUDDIN , A.Md. Kom.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 14, 'avatar.jpg'),
+(44, NULL, '::1', '0000015', '$2y$08$q3peZ.kuXlZsy1rCYGxa2ud8Xvdw2Qs8iN1NHfyNlYtTU8P.WtUrO', '2tok8', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545716104, NULL, 1, 'ARIFUDDIN, S.S.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 15, 'avatar.jpg'),
+(45, NULL, '::1', '0000016', '$2y$08$nP54A.aeP/PM.WqLPO/H3ujashD6VILlrpgmOivWGV4ypBwKMompK', '4eqlh', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545716114, NULL, 1, 'JAMALUDDIN, S.E.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 16, 'avatar.jpg'),
+(46, NULL, '::1', '0000017', '$2y$08$FSaWEbgqrsklPeYoJvzY8OdITji77HZI3UGF7HMnGOr35bjFyKVvO', 'gvqn4', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545716123, NULL, 1, 'LA MALA, S.Sos.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 17, 'avatar.jpg'),
+(47, NULL, '::1', '0000018', '$2y$08$rSyWt.me5u7UWN3FUt9JHO3OvaJzcbsHRnCkvhPdf5X0T8TJ7v6li', 'iruak', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545716132, 1545742024, 1, 'ANWAR, S.E.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 18, 'avatar.jpg'),
+(48, NULL, '::1', '0000019', '$2y$08$k3XeK97AexhzrmUCuXot7etZuYuWk1pLkJQKq2JefgMwjC.zCqPAm', 'araid', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545716201, NULL, 1, 'IRAWATI, S.H.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 19, 'avatar.jpg'),
+(49, NULL, '::1', '0000020', '$2y$08$r0hy8OibIbToKR2saO0zfu/MmOoWkDTo4MJjtxtmGyE41AH2WHRtW', 'mycl6', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545716216, NULL, 1, 'ADITYA PURWANTO SADIF, S.Kom.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 20, 'avatar.jpg'),
+(50, NULL, '::1', '0000021', '$2y$08$Cqfh.wAmojgSoyuxwXCFEuYovARZj8OHAALNNlW8QEYBI0OpKLaYK', 'nj4l8', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545716254, NULL, 1, 'WIWIN, S.Kep.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 21, 'avatar.jpg'),
+(51, NULL, '::1', '0000022', '$2y$08$19YQwrj8nRRcJmUhWIhm9.G/j5Qz85LeQdVFt0DjPObl6rtr7Dd..', 'zgmza', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545716262, NULL, 1, 'JAMIL', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 22, 'avatar.jpg'),
+(52, NULL, '::1', '0000023', '$2y$08$LfHC02rah2uVEWG18c2YWuryeZt8Bn9corepmLb77Sn9fmoVvx3qC', 'qhtak', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545716269, NULL, 1, 'MUHLISA', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 23, 'avatar.jpg'),
+(53, NULL, '::1', '0000024', '$2y$08$sqI1xDyDRMrufVZZC0TKxe6Pof0eb87obOW/wT6K.xS4t2SqUHl4C', '12ixp', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1545716609, NULL, 1, 'ARIFUDDIN, S.S.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 24, 'avatar.jpg'),
+(54, NULL, '::1', '0000026', '$2y$08$HnfF3bEAtWFzucrlEkcEdeql477xQcVfmRf54Hy85xgb55xn79nQa', 'gcnbl', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1546523311, NULL, 1, 'ERNI UDDIN, A.Md. Kom.', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '', NULL, NULL, NULL, NULL, 0, 26, 'avatar.jpg'),
+(55, NULL, '::1', '0000001', '$2y$08$2F6fNKIgnDm0NScYu3X.te5eC0kXpZJNMwip7GKXvkr/icQTY1gVO', 'f1mib', NULL, 'honorer@gmail.com', NULL, NULL, NULL, NULL, 1558143767, NULL, 1, 'ARTHUR', 'Badan Kepegawaian dan Pengembangan Sumber Daya Man', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 2, '085242826445', NULL, NULL, NULL, NULL, 0, 27, 'avatar.jpg');
 
 -- --------------------------------------------------------
 
@@ -1751,7 +1951,41 @@ CREATE TABLE `tbl_users_groups` (
 INSERT INTO `tbl_users_groups` (`id`, `user_id`, `group_id`) VALUES
 (1, 1, 1),
 (2, 1, 2),
-(48, 15, 1);
+(63, 21, 2),
+(64, 22, 2),
+(65, 23, 2),
+(66, 24, 2),
+(67, 25, 2),
+(68, 26, 2),
+(69, 27, 2),
+(70, 28, 2),
+(71, 29, 2),
+(72, 30, 2),
+(73, 31, 35),
+(74, 32, 35),
+(75, 33, 35),
+(76, 34, 35),
+(77, 35, 35),
+(78, 36, 35),
+(79, 37, 35),
+(80, 38, 35),
+(81, 39, 35),
+(82, 40, 35),
+(83, 41, 35),
+(84, 42, 35),
+(85, 43, 35),
+(86, 44, 35),
+(87, 45, 35),
+(88, 46, 35),
+(89, 47, 35),
+(90, 48, 35),
+(91, 49, 35),
+(92, 50, 35),
+(93, 51, 35),
+(94, 52, 35),
+(95, 53, 35),
+(96, 54, 35),
+(97, 55, 35);
 
 -- --------------------------------------------------------
 
@@ -1965,6 +2199,12 @@ ALTER TABLE `tbl_master_lokasi_pelatihan`
   ADD PRIMARY KEY (`id_lokasi_pelatihan`);
 
 --
+-- Indexes for table `tbl_master_mata_anggaran`
+--
+ALTER TABLE `tbl_master_mata_anggaran`
+  ADD PRIMARY KEY (`id_mata_anggaran`);
+
+--
 -- Indexes for table `tbl_master_pangkat`
 --
 ALTER TABLE `tbl_master_pangkat`
@@ -2043,10 +2283,22 @@ ALTER TABLE `tbl_master_unit_kerja`
   ADD PRIMARY KEY (`id_unit_kerja`);
 
 --
+-- Indexes for table `tbl_mata_anggaran`
+--
+ALTER TABLE `tbl_mata_anggaran`
+  ADD PRIMARY KEY (`id_mata_anggaran`);
+
+--
 -- Indexes for table `tbl_rincian_biaya`
 --
 ALTER TABLE `tbl_rincian_biaya`
   ADD PRIMARY KEY (`id_rincian_biaya`);
+
+--
+-- Indexes for table `tbl_sppd_honorer`
+--
+ALTER TABLE `tbl_sppd_honorer`
+  ADD PRIMARY KEY (`id_sppd_honorer`);
 
 --
 -- Indexes for table `tbl_sppd_ld`
@@ -2080,82 +2332,82 @@ ALTER TABLE `tbl_user_login`
 -- AUTO_INCREMENT for table `tbl_data_dp3`
 --
 ALTER TABLE `tbl_data_dp3`
-  MODIFY `id_dp3` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_dp3` int(50) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_data_gaji_pokok`
 --
 ALTER TABLE `tbl_data_gaji_pokok`
-  MODIFY `id_gaji_pokok` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_gaji_pokok` int(50) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_data_hukuman`
 --
 ALTER TABLE `tbl_data_hukuman`
-  MODIFY `id_hukuman` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_hukuman` int(50) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_data_keluarga`
 --
 ALTER TABLE `tbl_data_keluarga`
-  MODIFY `id_data_keluarga` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_data_keluarga` int(50) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_data_organisasi`
 --
 ALTER TABLE `tbl_data_organisasi`
-  MODIFY `id_organisasi` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_organisasi` int(50) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_data_pegawai`
 --
 ALTER TABLE `tbl_data_pegawai`
-  MODIFY `id_pegawai` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_pegawai` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `tbl_data_pelatihan`
 --
 ALTER TABLE `tbl_data_pelatihan`
-  MODIFY `id_pelatihan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_pelatihan` int(50) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_data_pendidikan`
 --
 ALTER TABLE `tbl_data_pendidikan`
-  MODIFY `id_pendidikan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_pendidikan` int(50) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_data_penghargaan`
 --
 ALTER TABLE `tbl_data_penghargaan`
-  MODIFY `id_penghargaan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_penghargaan` int(50) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_data_riwayat_eselon`
 --
 ALTER TABLE `tbl_data_riwayat_eselon`
-  MODIFY `id_riwayat_eselon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_riwayat_eselon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tbl_data_riwayat_golongan`
 --
 ALTER TABLE `tbl_data_riwayat_golongan`
-  MODIFY `id_riwayat_golongan` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_riwayat_golongan` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `tbl_data_riwayat_jabatan`
 --
 ALTER TABLE `tbl_data_riwayat_jabatan`
-  MODIFY `id_riwayat_jabatan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_riwayat_jabatan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tbl_data_riwayat_pangkat`
 --
 ALTER TABLE `tbl_data_riwayat_pangkat`
-  MODIFY `id_riwayat_pangkat` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_riwayat_pangkat` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `tbl_data_seminar`
 --
 ALTER TABLE `tbl_data_seminar`
-  MODIFY `id_seminar` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_seminar` int(50) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_groups`
 --
 ALTER TABLE `tbl_groups`
-  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `tbl_honorer`
 --
 ALTER TABLE `tbl_honorer`
-  MODIFY `id_honorer` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_honorer` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `tbl_info_pt`
 --
@@ -2185,12 +2437,12 @@ ALTER TABLE `tbl_master_angkutan`
 -- AUTO_INCREMENT for table `tbl_master_biaya_harian`
 --
 ALTER TABLE `tbl_master_biaya_harian`
-  MODIFY `id_biaya_harian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_biaya_harian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tbl_master_biaya_hotel`
 --
 ALTER TABLE `tbl_master_biaya_hotel`
-  MODIFY `id_biaya_hotel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_biaya_hotel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tbl_master_eselon`
 --
@@ -2232,6 +2484,11 @@ ALTER TABLE `tbl_master_lokasi_kerja`
 ALTER TABLE `tbl_master_lokasi_pelatihan`
   MODIFY `id_lokasi_pelatihan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
+-- AUTO_INCREMENT for table `tbl_master_mata_anggaran`
+--
+ALTER TABLE `tbl_master_mata_anggaran`
+  MODIFY `id_mata_anggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `tbl_master_pangkat`
 --
 ALTER TABLE `tbl_master_pangkat`
@@ -2265,12 +2522,12 @@ ALTER TABLE `tbl_master_ppk`
 -- AUTO_INCREMENT for table `tbl_master_provinsi`
 --
 ALTER TABLE `tbl_master_provinsi`
-  MODIFY `id_provinsi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_provinsi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 --
 -- AUTO_INCREMENT for table `tbl_master_satuan_kerja`
 --
 ALTER TABLE `tbl_master_satuan_kerja`
-  MODIFY `id_satuan_kerja` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
+  MODIFY `id_satuan_kerja` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
 --
 -- AUTO_INCREMENT for table `tbl_master_status_dalam_keluarga`
 --
@@ -2290,32 +2547,42 @@ ALTER TABLE `tbl_master_status_kawin`
 -- AUTO_INCREMENT for table `tbl_master_status_pegawai`
 --
 ALTER TABLE `tbl_master_status_pegawai`
-  MODIFY `id_status_pegawai` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_status_pegawai` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `tbl_master_unit_kerja`
 --
 ALTER TABLE `tbl_master_unit_kerja`
   MODIFY `id_unit_kerja` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
 --
+-- AUTO_INCREMENT for table `tbl_mata_anggaran`
+--
+ALTER TABLE `tbl_mata_anggaran`
+  MODIFY `id_mata_anggaran` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `tbl_rincian_biaya`
 --
 ALTER TABLE `tbl_rincian_biaya`
   MODIFY `id_rincian_biaya` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT for table `tbl_sppd_honorer`
+--
+ALTER TABLE `tbl_sppd_honorer`
+  MODIFY `id_sppd_honorer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `tbl_sppd_ld`
 --
 ALTER TABLE `tbl_sppd_ld`
-  MODIFY `id_sppd_ld` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_sppd_ld` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 --
 -- AUTO_INCREMENT for table `tbl_users_groups`
 --
 ALTER TABLE `tbl_users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 --
 -- AUTO_INCREMENT for table `tbl_user_login`
 --

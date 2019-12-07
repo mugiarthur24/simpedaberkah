@@ -4,11 +4,13 @@
 			<h4>Data Status Pegawai</h4>
 		</div>
 		<div class="media-right">
-			<button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#addmasterstatuspegawai"><i class="ti ti-plus"></i> Tambah Data </button>
+			<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addmasterstatuspegawai"><i class="fas fa-plus"></i> Tambah Data </button>
 		</div>
 	</div>
 	<hr/>
-			<table class="w-100" border="1" style="font-size: 13px;">
+			<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 				<tr class="table-info">
 					<td class="p-1 text-center">No</td>
 					<td class="p-1 text-center">Nama Status</td>
@@ -19,8 +21,8 @@
 					<tr>
 						<td class="p-1"><?php echo $no; ?></td>
 						<td class="p-1"><?php echo $data->nama_status; ?></td>
-						<td class="p-1 text-center"><a href="<?php echo base_url('index.php/admin/master/edit/status_pegawai/'.$data->id_status_pegawai) ?>"><i class="ti ti-pencil text-info" rel="tooltip" title="Edit"></i></a></td>
-						<td class="p-1 text-center"><a href="<?php echo base_url('index.php/admin/master/delete/status_pegawai/'.$data->id_status_pegawai) ?>"><i class="ti ti-trash text-danger" rel="tooltip" title="Hapus"></i></a></td>
+						<td class="p-1 text-center"><a href="<?php echo base_url('index.php/admin/master/edit/status_pegawai/'.$data->id_status_pegawai) ?>"><i class="fas fa-edit"></i> Edit</a></td>
+						<td class="p-1 text-center"><a href="<?php echo base_url('index.php/admin/master/delete/status_pegawai/'.$data->id_status_pegawai) ?>" class="text-danger"><i class="fas fa-trash"></i> Hapus</a></td>
 					</tr>
 					<?php $no++ ?>
 				<?php endforeach ?>

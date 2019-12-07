@@ -4,11 +4,13 @@
 			<h4>Data Eselon</h4>
 		</div>
 		<div class="media-right">
-			<button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#addmastereselon"><i class="ti ti-plus"></i> Tambah Data </button>
+			<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addmastereselon"><i class="ti ti-plus"></i> Tambah Data </button>
 		</div>
 	</div>
 	<hr/>
-			<table class="w-100" border="1" style="font-size: 13px;">
+		<div class="card-body">
+		<div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 				<tr class="table-info">
 					<td class="p-1 text-center">No</td>
 					<td class="p-1 text-center">Nama Eselon</td>
@@ -19,8 +21,8 @@
 					<tr>
 						<td class="p-1 text-center"><?php echo $no; ?></td>
 						<td class="p-1 text-center"><?php echo $data->nama_eselon; ?></td>
-						<td class="p-1 text-center"><a href="<?php echo base_url('index.php/admin/master/edit/eselon/'.$data->id_eselon) ?>"><i class="ti ti-pencil text-info" rel="tooltip" title="Edit"></i></a></td>
-						<td class="p-1 text-center"><a href="<?php echo base_url('index.php/admin/master/delete/eselon/'.$data->id_eselon) ?>"><i class="ti ti-trash text-danger" rel="tooltip" title="Hapus"></i></a></td>
+						<td class="p-1 text-center"><a href="<?php echo base_url('index.php/admin/master/edit/eselon/'.$data->id_eselon) ?>"><i class="fas fa-edit"></i> Edit</a></td>
+						<td class="p-1 text-center"><a href="<?php echo base_url('index.php/admin/master/delete/eselon/'.$data->id_eselon) ?>" class="text-danger"><i class="fas fa-trash-alt"></i> Hapus</a></td>
 					</tr>
 					<?php $no++ ?>
 				<?php endforeach ?>

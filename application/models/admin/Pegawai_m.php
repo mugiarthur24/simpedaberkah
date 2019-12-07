@@ -46,6 +46,7 @@ class Pegawai_m extends CI_Model
 		$query = $this->db->get('data_pegawai');
 		return $query->row();
 	}
+	
 	public function select_data($tabel){
 		$query = $this->db->get($tabel);
 		return $query->result();

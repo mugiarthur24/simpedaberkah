@@ -1,3 +1,4 @@
+<script src="<?php echo base_url('asset/js/jquery.js') ?>"></script>
 <div style="margin-top: 14px; background-color: white;padding: 30px">
 	<div class="ktk-jdl">
 		<div class="media">

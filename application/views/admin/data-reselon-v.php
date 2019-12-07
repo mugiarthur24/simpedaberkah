@@ -4,11 +4,13 @@
 			<h4>Riwayat eselon</h4>
 		</div>
 		<div class="media-right">
-			<button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#addreselon"><i class="ti ti-plus"></i> Tambah Data Riwayat Eselon</button>
+			<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addreselon"><i class="fas fa-plus"></i> Tambah Data Riwayat Eselon</button>
 		</div>
 	</div>
 	<hr/>
-	<table class="w-100" border="1" style="font-size: 13px;">
+	<div class="card-body">
+	<div class="table-responsive">
+		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 		<thead>
 			<tr class="table-info">
 				<td class="p-1 text-center">No</td>
@@ -28,10 +30,10 @@
 						<td class="p-1"><?php echo @$this->Admin_m->detail_data_order('master_eselon','id_eselon',$data->id_eselon)->nama_eselon; ?></td>
 						<td class="p-1"><?php echo $data->nomor_sk; ?></td>
 						<td class="text-center p-1">
-							<a href="<?php echo base_url('index.php/admin/pegawai/edit_reselon/'.$hasil->id_pegawai.'/'.$data->id_riwayat_eselon) ?>" class="text-success"><i class="ti ti-pencil" rel="tooltip" title="Edit"></i></a>
+							<a href="<?php echo base_url('index.php/admin/pegawai/edit_reselon/'.$hasil->id_pegawai.'/'.$data->id_riwayat_eselon) ?>" class="text-success">Edit</a>
 						</td>
 						<td class="text-center p-1">
-							<a href="<?php echo base_url('index.php/admin/pegawai/delete_reselon/'.$hasil->id_pegawai.'/'.$data->id_riwayat_eselon) ?>" class="text-danger"><i class="ti ti-trash" rel="tooltip" title="Hapus"></i></a>
+							<a href="<?php echo base_url('index.php/admin/pegawai/delete_reselon/'.$hasil->id_pegawai.'/'.$data->id_riwayat_eselon) ?>" class="text-danger">Hapus</a>
 						</td>
 					</tr>
 					<?php $no++ ?>
@@ -43,6 +45,8 @@
 				<?php endif ?>
 			</tbody>
 		</table>
+	</div>
+</div>
 		<!-- Modal -->
 		<div class="modal fade" id="addreselon" tabindex="-1" role="dialog" aria-labelledby="addreselon" aria-hidden="true">
 			<div class="modal-dialog modal-lg" role="document">

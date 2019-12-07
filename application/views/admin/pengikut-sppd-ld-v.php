@@ -7,8 +7,9 @@
 			<div class="media-right"></div>
 		</div>
 	</div>
-	<div class="ktk-badan bts-ats">
-		<table class="w-100 mt-2" border="1" style="font-size: 13px">
+	<div class="card-body">
+	<div class="table-responsive">
+		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 			<thead>
 				<tr class="table-info">
 					<td class="p-1 text-center" align="text-center">No</td>
@@ -28,13 +29,14 @@
 						<td class="p-1"><?php echo strtoupper($data->nama_pegawai); ?></td>
 						<td class="p-1"><?php echo $data->nip; ?></td>
 						<td class="p-1 text-center">
-							<a href="<?php echo base_url('index.php/admin/pegawai/tambah_pengikut_sppd_ld/'.$hasil->id_pegawai.'/'.$data->id_sppd_ld) ?>" class="text-success"><i class="ti ti-plus" rel="tooltip" title="Tambah Pengikut"></i> Pengikut</a>
+							<a href="<?php echo base_url('index.php/admin/pegawai/tambah_pengikut_sppd_ld/'.$hasil->id_pegawai.'/'.$data->id_sppd_ld) ?>" class="text-success"><i class="fas fa-plus" rel="tooltip" title="Tambah Pengikut"></i> Pengikut</a>
 						</td>
 					</tr>
 					<?php $no++ ?>
 				<?php endforeach ?>
 			</tbody>
 		</table>
+	</div>
+</div>
 		<?php echo $pagging; ?>
 	</div>
-</div>`

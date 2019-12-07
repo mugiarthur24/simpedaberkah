@@ -16,12 +16,13 @@
 				Data Pegawai <span class="text-secondary">jumlah Pegawai Ditemukan <?php echo $jmldata; ?></span>
 			</div>
 			<div class="media-right">
-				<button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#addpegawai"><i class="ti ti-plus"></i> Tambah data Pegawai</button>
+				<button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#addpegawai"><i class="fas fa-plus"></i> Tambah data Pegawai</button>
 			</div>
 		</div>
 	</div>
-	<div class="ktk-badan bts-ats">
-		<table class="w-100 mt-2" border="1" style="font-size: 13px">
+	<div class="card-body">
+	<div class="table-responsive">
+		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 			<thead>
 				<tr class="table-info">
 					<td class="p-1 text-center">No</td>
@@ -45,7 +46,7 @@
 							<td class="p-1 text-secondary"><?php echo strtoupper($data->alamat); ?></td>
 							<td class="p-1 text-center text-secondary"><?php echo $data->nama_status; ?></td>
 							<td class="p-1 text-center">
-								<a href="<?php echo base_url('index.php/admin/pegawai/delete_pegawai/'.$data->id_pegawai) ?>" class="text-danger"><i class="ti ti-trash"></i></a>
+								<a href="<?php echo base_url('index.php/admin/pegawai/delete_pegawai/'.$data->id_pegawai) ?>" class="text-danger"><i class="fas fa-trash-alt"> </i> Hapus</a>
 							</td>
 						</tr>
 						<?php $no++ ?>

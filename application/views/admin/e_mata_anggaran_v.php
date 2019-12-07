@@ -1,12 +1,12 @@
 <div style="margin-top: 14px; background-color: white;padding: 30px">
 	<form action="<?php echo base_url('index.php/admin/master/update_mata_anggaran/'.$hasil->id_mata_anggaran) ?>" method="post">
 		<div class="form-group">
-			<label for="mata_anggaran">KODE ANGGARAN</label>
+			<label for="mata_anggaran">KODE REKENING ANGGARAN</label>
 			<input type="text" class="form-control" id="kode_anggaran" name="kode_anggaran" aria-describedby="kode_anggaran" placeholder="Kode Anggaran" value="<?php echo $hasil->kode_anggaran ?>">
 			<small id="kode_anggaran" class="form-text text-muted">Hanya dapat menggunakan angka, Selain itu tidak di izinkan</small>
 		</div>
 		<div class="form-group">
-			<label for="mata_anggaran">MATA ANGGARAN</label>
+			<label for="mata_anggaran">JUMLAH ANGGARAN (RP)</label>
 			<input type="text" class="form-control" id="mata_anggaran" name="mata_anggaran" aria-describedby="mata_anggaran" placeholder="Mata Anggaran" value="<?php echo $hasil->mata_anggaran ?>">
 			<small id="mata_anggaran" class="form-text text-muted">Hanya dapat menggunakan angka, Selain itu tidak di izinkan</small>
 		</div>

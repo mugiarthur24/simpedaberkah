@@ -17,19 +17,19 @@ class Export extends CI_Controller {
        redirect(base_url('index.php/admin/dashboard_c'));
      }else{
       $post = $this->input->post('');
-      $data['title'] = 'List Pembayaran Calon Peserta';
+      $data['title'] = 'Laporan Data Pegawai';
       // $data['page'] = 'admin/export-v';
       // $data['nav'] = 'nav/nav-admin';
       // $data['dtadm'] = $this->ion_auth->user()->row();
                 // setting web server
       $file = new PHPExcel ();
       $file->getProperties ()->setCreator ( "Goblooge" );
-      $file->getProperties ()->setLastModifiedBy ( "www.pmb.unidayan.ac.id" );
-      $file->getProperties ()->setTitle ( "List Calon Peserta sudah membayar" );
-      $file->getProperties ()->setSubject ( "Daftar Calon Peserta" );
-      $file->getProperties ()->setDescription ( "Daftar Calon Peserta" );
-      $file->getProperties ()->setKeywords ( "Daftar Calon Peserta" );
-      $file->getProperties ()->setCategory ( "Calon Peserta" );
+      $file->getProperties ()->setLastModifiedBy ( "" );
+      $file->getProperties ()->setTitle ( "Laporan Data Pegawai" );
+      $file->getProperties ()->setSubject ( "Laporan Data Pegawai" );
+      $file->getProperties ()->setDescription ( "Laporan Data Pegawai" );
+      $file->getProperties ()->setKeywords ( "Laporan Data Pegawai" );
+      $file->getProperties ()->setCategory ( "Laporan Data Pegawai" );
       /*end - BLOCK PROPERTIES FILE EXCEL*/
 
       /*start - BLOCK SETUP SHEET*/
@@ -37,33 +37,84 @@ class Export extends CI_Controller {
       $file->setActiveSheetIndex ( 0 );
       $sheet = $file->getActiveSheet ( 0 );
   //memberikan title pada sheet
-      $sheet->setTitle ( "Daftar Dosen" );
+      $sheet->setTitle ( "Laporan Data Pegawai" );
+      $sheet->mergeCells('A1:J1');
+      $sheet->setCellValue ( "A1", "DATA PEGAWAI BKPSDM KAB. BUTON TENGAH" );
       /*end - BLOCK SETUP SHEET*/
 
       /*start - BLOCK HEADER*/
-      $sheet->setCellValue ( "A1", "No" );
-      $sheet->setCellValue ( "B1", "Nama Satuan Kerja" );
-      $sheet->setCellValue ( "C1", "Parent Unit" );
+      $sheet->setCellValue ( "A3", "No" );
+      $sheet->setCellValue ( "B3", "NIP" );
+      $sheet->setCellValue ( "C3", "NAMA PEGAWAI" );
+      $sheet->setCellValue ( "D3", "JK" );
+      $sheet->setCellValue ( "E3", "TEMPAT LAHIR" );
+      $sheet->setCellValue ( "F3", "TANGGAL LAHIR" );
+      $sheet->setCellValue ( "G3", "AGAMA" );
+      $sheet->setCellValue ( "H3", "ALAMAT" );
+      $sheet->setCellValue ( "I3", "NO HP" );
       /*end - BLOCK HEADER*/
 
       /* start - BLOCK MEMASUKAN DATABASE*/
       $nomor = 1;
-      $nocel = 2;
-      $hasil = $this->Admin_m->select_data('master_satuan_kerja');
+      $nocel = 4;
+      $hasil = $this->Admin_m->select_data('data_pegawai');
                 // echo "<pre>";print_r($hasil);echo "</pre>";exit();
       foreach ($hasil as $data) {
         $sheet->setCellValue ( "A".$nocel, $nomor );
-        $sheet->setCellValue ( "B".$nocel, strtoupper($data->nama_satuan_kerja));
-        $sheet->setCellValue ( "C".$nocel, strtoupper($data->parent_unit) );
+        $sheet->setCellValue ( "B".$nocel, $data->nip );
+        $sheet->setCellValue ( "C".$nocel, $data->nama_pegawai );
+        $sheet->setCellValue ( "D".$nocel, $data->jenis_kelamin );
+        $sheet->setCellValue ( "E".$nocel, $data->tempat_lahir );
+        $sheet->setCellValue ( "F".$nocel, $data->tanggal_lahir );
+        $sheet->setCellValue ( "G".$nocel, strtoupper($this->Admin_m->detail_data_order('master_agama','id_agama',$data->agama)->nm_agama) );
+        $sheet->setCellValue ( "H".$nocel, $data->alamat );
+        $sheet->setCellValue ( "I".$nocel, $data->no_hp );
+
         $nomor++;
         $nocel++;
       }
       /* end - BLOCK MEMASUKAN DATABASE*/
 
+      /*start - BLOK AUTOSIZE*/
+  $sheet ->getColumnDimension ( "A" )->setWidth(4);
+  $sheet ->getColumnDimension ( "B" )->setWidth(25);
+  $sheet ->getColumnDimension ( "C" )->setWidth(45);
+  $sheet ->getColumnDimension ( "D" )->setWidth(15);
+  $sheet ->getColumnDimension ( "E" )->setWidth(40);
+  $sheet ->getColumnDimension ( "F" )->setWidth(20);
+  $sheet ->getColumnDimension ( "G" )->setWidth(10);
+  $sheet ->getColumnDimension ( "H" )->setWidth(45);
+  $sheet ->getColumnDimension ( "I" )->setWidth(20);
+
+  /*end - BLOG AUTOSIZE*/
+
+        /*start - BLOCK UNTUK BORDER*/
+$thick = array ();
+$thick['borders']=array();
+$thick['borders']['allborders']=array();
+$thick['borders']['allborders']['style']=PHPExcel_Style_Border::BORDER_THICK ;
+$sheet->getStyle ( 'A3:I3' )->applyFromArray ($thick);
+
+$thin = array ();
+$thin['borders']=array();
+$thin['borders']['allborders']=array();
+$thin['borders']['allborders']['style']=PHPExcel_Style_Border::BORDER_THIN ;
+$sheet->getStyle ( 'A4:I24' )->applyFromArray ($thin);
+/*end - BLOCK UNTUK BORDER*/
+
+/*start - BLOCK UNTUK BACKGROUND*/
+$backgroound['fill']=array();
+$backgroound['fill']['type']=PHPExcel_Style_Fill::FILL_SOLID;
+$backgroound['fill']['color']=array();
+$backgroound['fill']['color']['rgb']='99FFFF';
+$sheet->getStyle ( 'A3:I3' )->applyFromArray ($backgroound);
+
+/*end - BLOCK UNTUK BACKGROUND*/
+
       /* start - BLOCK MEMBUAT LINK DOWNLOAD*/
       header ( 'Content-Type: application/vnd.ms-excel' );
   //namanya adalah keluarga.xls
-      header ( 'Content-Disposition: attachment;filename="laporan_satuan_kerja.xls"' ); 
+      header ( 'Content-Disposition: attachment;filename="laporan_data_pegawai.xls"' ); 
       header ( 'Cache-Control: max-age=0' );
       $writer = PHPExcel_IOFactory::createWriter ( $file, 'Excel5' );
       $writer->save ( 'php://output' );
@@ -126,11 +177,11 @@ function ex_bpk(){
     /*start - BLOCK SETUP SHEET*/
     $file->createSheet ( NULL,0);
     $file->setActiveSheetIndex ( 0 );
-    $sheet = $file->getActiveSheet ( 0 );
+    $sheet = $file->getActiveSheet (0);
   //memberikan title pada sheet
     $sheet->setTitle ( "Laporan BPK" );
     $sheet->mergeCells('A1:AG1');
-    $sheet->setCellValue ( "A1", "Rekap Biaya Perjalanan Dina" );
+    $sheet->setCellValue ( "A1", "Rekap Biaya Perjalanan Dinas" );
     $sheet->mergeCells('A2:AG2');
     $sheet->setCellValue ( "A2", "BADAN KEPEGAWAIAN DAN PENGEMBANGAN SUMBER DAYA MANUSIA BUTON TENGAH" );
     /*end - BLOCK SETUP SHEET*/
@@ -158,7 +209,7 @@ function ex_bpk(){
     $sheet->mergeCells('G4:G6');
     $sheet->setCellValue ( "G4", "Kode Anggaran" );
     $sheet->mergeCells('H4:H6');
-    $sheet->setCellValue ( "G4", "Jumlah Dibayarkan" );
+    $sheet->setCellValue ( "H4", "Jumlah Dibayarkan" );
     $sheet->setCellValue ( "H7", "7" );
     $sheet->mergeCells('I4:I6');
     $sheet->setCellValue ( "I4", "Gol. Peg" );
@@ -277,6 +328,283 @@ function ex_bpk(){
     }
     /* end - BLOCK MEMASUKAN DATABASE*/
 
+    /*start - BLOK AUTOSIZE*/
+  $sheet ->getColumnDimension ( "A" )->setWidth(4);
+  $sheet ->getColumnDimension ( "B" )->setWidth(25);
+  $sheet ->getColumnDimension ( "C" )->setWidth(20);
+  $sheet ->getColumnDimension ( "D" )->setWidth(40);
+  $sheet ->getColumnDimension ( "E" )->setWidth(35);
+  $sheet ->getColumnDimension ( "F" )->setWidth(50);
+  $sheet ->getColumnDimension ( "G" )->setWidth(20);
+  $sheet ->getColumnDimension ( "H" )->setWidth(15);
+  $sheet ->getColumnDimension ( "I" )->setWidth(10);
+  $sheet ->getColumnDimension ( "J" )->setWidth(15);
+  $sheet ->getColumnDimension ( "K" )->setWidth(15);
+  $sheet ->getColumnDimension ( "L" )->setWidth(15);
+  $sheet ->getColumnDimension ( "M" )->setWidth(15);
+  $sheet ->getColumnDimension ( "N" )->setWidth(15);
+  $sheet ->getColumnDimension ( "O" )->setWidth(15);
+  $sheet ->getColumnDimension ( "P" )->setWidth(15);
+  $sheet ->getColumnDimension ( "Q" )->setWidth(15);
+  $sheet ->getColumnDimension ( "R" )->setWidth(15);
+  $sheet ->getColumnDimension ( "S" )->setWidth(15);
+  $sheet ->getColumnDimension ( "T" )->setWidth(15);
+  $sheet ->getColumnDimension ( "U" )->setWidth(15);
+  $sheet ->getColumnDimension ( "V" )->setWidth(15);
+  $sheet ->getColumnDimension ( "W" )->setWidth(15);
+  $sheet ->getColumnDimension ( "X" )->setWidth(15);
+  $sheet ->getColumnDimension ( "Y" )->setWidth(15);
+  $sheet ->getColumnDimension ( "Z" )->setWidth(15);
+  $sheet ->getColumnDimension ( "AA" )->setWidth(15);
+  $sheet ->getColumnDimension ( "AB" )->setWidth(15);
+  $sheet ->getColumnDimension ( "AC" )->setWidth(15);
+  $sheet ->getColumnDimension ( "AD" )->setWidth(15);
+  $sheet ->getColumnDimension ( "AE" )->setWidth(15);
+  $sheet ->getColumnDimension ( "AF" )->setWidth(15);
+  $sheet ->getColumnDimension ( "AG" )->setWidth(15);
+
+  /*end - BLOG AUTOSIZE*/
+
+        /*start - BLOCK UNTUK BORDER*/
+$thick = array ();
+$thick['borders']=array();
+$thick['borders']['allborders']=array();
+$thick['borders']['allborders']['style']=PHPExcel_Style_Border::BORDER_THICK ;
+$sheet->getStyle ( 'A4:AG4' )->applyFromArray ($thick);
+$sheet->getStyle ( 'A5:AG5' )->applyFromArray ($thick);
+$sheet->getStyle ( 'A6:AG6' )->applyFromArray ($thick);
+
+$thin = array ();
+$thin['borders']=array();
+$thin['borders']['allborders']=array();
+$thin['borders']['allborders']['style']=PHPExcel_Style_Border::BORDER_THIN ;
+$sheet->getStyle ( 'A7:AG24' )->applyFromArray ($thin);
+/*end - BLOCK UNTUK BORDER*/
+
+/*start - BLOCK UNTUK BACKGROUND*/
+$backgroound['fill']=array();
+$backgroound['fill']['type']=PHPExcel_Style_Fill::FILL_SOLID;
+$backgroound['fill']['color']=array();
+$backgroound['fill']['color']['rgb']='99FFFF';
+$sheet->getStyle ( 'A4:AG4' )->applyFromArray ($backgroound);
+$sheet->getStyle ( 'A5:AG5' )->applyFromArray ($backgroound);
+$sheet->getStyle ( 'A6:AG6' )->applyFromArray ($backgroound);
+
+/*end - BLOCK UNTUK BACKGROUND*/
+
+    /* start - BLOCK MEMBUAT LINK DOWNLOAD*/
+    header ( 'Content-Type: application/vnd.ms-excel' );
+  //namanya adalah keluarga.xls
+    header ( 'Content-Disposition: attachment;filename="laporan_bpk.xls"' ); 
+    header ( 'Cache-Control: max-age=0' );
+    $writer = PHPExcel_IOFactory::createWriter ( $file, 'Excel5' );
+    $writer->save ( 'php://output' );
+    /* start - BLOCK MEMBUAT LINK DOWNLOAD*/
+                // pagging setting
+  }
+}else{
+  $pesan = 'Login terlebih dahulu';
+  $this->session->set_flashdata('message', $pesan );
+  redirect(base_url('index.php/login'));
+}
+}
+function ex_bpk_honorer(){
+  if ($this->ion_auth->logged_in()){
+    $level = 'admin';  
+    if (!$this->ion_auth->in_group($level)) {
+     $pesan = 'Anda tidak memiliki Hak untuk Mengakses halaman ini';
+     $this->session->set_flashdata('message', $pesan );
+     redirect(base_url('index.php/admin/dashboard_c'));
+   }else{
+    $post = $this->input->post('');
+                // setting web server
+    $file = new PHPExcel ();
+    $file->getProperties ()->setCreator ( "simpedaberkah" );
+    $file->getProperties ()->setLastModifiedBy ( "BKPSDM Buteng" );
+    $file->getProperties ()->setTitle ( "Laporan BPK" );
+    $file->getProperties ()->setSubject ( "Laporan BPK" );
+    $file->getProperties ()->setDescription ( "Laporan BPK" );
+    $file->getProperties ()->setKeywords ( "Laporan BPK" );
+    $file->getProperties ()->setCategory ( "Laporan BPK" );
+    /*end - BLOCK PROPERTIES FILE EXCEL*/
+
+    $style_col = array(
+      'font' => array('bold' => true), // Set font nya jadi bold
+      'alignment' => array(
+        'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER, // Set text jadi ditengah secara horizontal (center)
+        'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER // Set text jadi di tengah secara vertical (middle)
+      ),
+      'borders' => array(
+        'top' => array('style'  => PHPExcel_Style_Border::BORDER_THIN), // Set border top dengan garis tipis
+        'right' => array('style'  => PHPExcel_Style_Border::BORDER_THIN),  // Set border right dengan garis tipis
+        'bottom' => array('style'  => PHPExcel_Style_Border::BORDER_THIN), // Set border bottom dengan garis tipis
+        'left' => array('style'  => PHPExcel_Style_Border::BORDER_THIN) // Set border left dengan garis tipis
+      )
+    );
+
+    // Buat sebuah variabel untuk menampung pengaturan style dari isi tabel
+    $style_row = array(
+      'alignment' => array(
+        'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER // Set text jadi di tengah secara vertical (middle)
+      ),
+      'borders' => array(
+        'top' => array('style'  => PHPExcel_Style_Border::BORDER_THIN), // Set border top dengan garis tipis
+        'right' => array('style'  => PHPExcel_Style_Border::BORDER_THIN),  // Set border right dengan garis tipis
+        'bottom' => array('style'  => PHPExcel_Style_Border::BORDER_THIN), // Set border bottom dengan garis tipis
+        'left' => array('style'  => PHPExcel_Style_Border::BORDER_THIN) // Set border left dengan garis tipis
+      )
+    );
+
+    /*start - BLOCK SETUP SHEET*/
+    $file->createSheet ( NULL,0);
+    $file->setActiveSheetIndex ( 0 );
+    $sheet = $file->getActiveSheet ( 0 );
+  //memberikan title pada sheet
+    $sheet->setTitle ( "Laporan BPK Honorer" );
+    $sheet->mergeCells('A1:AG1');
+    $sheet->setCellValue ( "A1", "Rekap Biaya Perjalanan Dinas" );
+    $sheet->mergeCells('A2:AG2');
+    $sheet->setCellValue ( "A2", "BADAN KEPEGAWAIAN DAN PENGEMBANGAN SUMBER DAYA MANUSIA BUTON TENGAH" );
+    /*end - BLOCK SETUP SHEET*/
+
+    /*start - BLOCK HEADER*/
+    
+    $sheet->mergeCells('A4:A6');
+    $sheet->setCellValue ( "A4", "No" );
+    $sheet->setCellValue ( "A7", "1" );
+    $sheet->mergeCells('B4:B6');
+    $sheet->setCellValue ( "B4", "No. Bukti" );
+    $sheet->setCellValue ( "B7", "2" );
+    $sheet->mergeCells('C4:C6');
+    $sheet->setCellValue ( "C4", "Tanggal Bukti" );
+    $sheet->setCellValue ( "C7", "3" );
+    $sheet->mergeCells('D4:D6');
+    $sheet->setCellValue ( "D4", "Nama Lengkap Tanpa Gelar" );
+    $sheet->setCellValue ( "D7", "4" );
+    $sheet->mergeCells('E4:E6');
+    $sheet->setCellValue ( "E4", "Kode Honorer" );
+    $sheet->setCellValue ( "E7", "5" );
+    $sheet->mergeCells('F4:F6');
+    $sheet->setCellValue ( "F4", "Keperluan Perjalanan Dinas" );
+    $sheet->setCellValue ( "F7", "6" );
+    $sheet->mergeCells('G4:G6');
+    $sheet->setCellValue ( "G4", "Kode Anggaran" );
+    $sheet->mergeCells('H4:H6');
+    $sheet->setCellValue ( "G4", "Jumlah Dibayarkan" );
+    $sheet->setCellValue ( "H7", "7" );
+    $sheet->mergeCells('I4:I6');
+    $sheet->setCellValue ( "I4", "Tujuan" );
+    $sheet->setCellValue ( "I7", "8" );
+    $sheet->mergeCells('J4:L4');
+    $sheet->setCellValue ( "J4", "SPPD" );
+    $sheet->mergeCells('J5:K5');
+    $sheet->setCellValue ( "J5", "Tanggal" );
+    $sheet->setCellValue ( "J6", "Berangkat" );
+    $sheet->setCellValue ( "J7", "9" );
+    $sheet->setCellValue ( "K6", "Kembali" );
+    $sheet->setCellValue ( "K7", "10" );
+    $sheet->mergeCells('L5:L6');
+    $sheet->setCellValue ( "L5", "Lama Hari" );
+    $sheet->setCellValue ( "L7", "11" );
+    $sheet->mergeCells('M4:S4');
+    $sheet->setCellValue ( "M4", "Rincian Biaya" );
+    $sheet->mergeCells('M5:N5');
+    $sheet->setCellValue ( "M5", "Uang Harian" );
+    $sheet->setCellValue ( "M6", "Per Hari (Rp)" );
+    $sheet->setCellValue ( "M7", "12" );
+    $sheet->setCellValue ( "N6", "Total (Rp)" );
+    $sheet->setCellValue ( "N7", "13" );
+    $sheet->mergeCells('O5:O6');
+    $sheet->setCellValue ( "O5", "Biaya Akomodasi Hotel (Rp)" );
+    $sheet->setCellValue ( "O7", "14" );
+    $sheet->mergeCells('P5:P6');
+    $sheet->setCellValue ( "P5", "Biaya Representasi (Rp)" );
+    $sheet->setCellValue ( "P7", "15" );
+    $sheet->mergeCells('Q5:Q6');
+    $sheet->setCellValue ( "Q5", "Biaya Lain/ Kontribusi/ Bantuan Transport (Rp)" );
+    $sheet->setCellValue ( "Q7", "16" );
+    $sheet->mergeCells('R5:R6');
+    $sheet->setCellValue ( "R5", "Biaya Tiket PP (Rp)" );
+    $sheet->setCellValue ( "R7", "17" );
+    $sheet->mergeCells('S5:S6');
+    $sheet->setCellValue ( "S5", "Jumlah" );
+    $sheet->setCellValue ( "S7", "18=13+14+15+16+17" );
+    $sheet->mergeCells('T4:AE4');
+    $sheet->setCellValue ( "T4", "Tiket/Akomodasi" );
+    $sheet->mergeCells('T5:T6');
+    $sheet->setCellValue ( "T5", "Nama Penginapan" );
+    $sheet->setCellValue ( "T7", "19" );
+    $sheet->mergeCells('U5:U6');
+    $sheet->setCellValue ( "U5", "Tujuan" );
+    $sheet->setCellValue ( "U7", "20" );
+    $sheet->mergeCells('V5:Z5');
+    $sheet->setCellValue ( "V5", "Berangkat" );
+    $sheet->setCellValue ( "V7", "21" );
+    $sheet->setCellValue ( "W6", "Pesawat/KA" );
+    $sheet->setCellValue ( "W7", "22" );
+    $sheet->setCellValue ( "X6", "No. Tiket" );
+    $sheet->setCellValue ( "X7", "23" );
+    $sheet->setCellValue ( "Y6", "Kode Booking" );
+    $sheet->setCellValue ( "Y7", "24" );
+    $sheet->setCellValue ( "Z6", "Harga (Rp)" );
+    $sheet->setCellValue ( "Z7", "25" );
+    $sheet->mergeCells('AA5:AE5');
+    $sheet->setCellValue ( "AA5", "Kembali" );
+    $sheet->setCellValue ( "AA7", "26" );
+    $sheet->setCellValue ( "AA6", "Berangkat" );
+    $sheet->setCellValue ( "AB6", "Pesawat/KA" );
+    $sheet->setCellValue ( "AC6", "No. Tiket" );
+    $sheet->setCellValue ( "AD6", "Kode Booking" );
+    $sheet->setCellValue ( "AE6", "Harga (Rp)" );
+    $sheet->mergeCells('AF4:AF6');
+    $sheet->setCellValue ( "AF4", "Ket" );
+
+    /*end - BLOCK HEADER*/
+
+    /* start - BLOCK MEMASUKAN DATABASE*/
+    $nomor = 1;
+    $nocel = 8;
+    $hasil = $this->Admin_m->data_sppd_honorer();
+                // echo "<pre>";print_r($hasil);echo "</pre>";exit();
+    foreach ($hasil as $data) {
+        // echo "<pre>";print_r($this->Admin_m->jabatan_min2($data->id_pegawai));echo "<pre>";
+      $dethon = $this->Admin_m->detail_data_order('honorer','id_honorer',$data->id_honorer);
+      $sheet->setCellValue ( "A".$nocel, $nomor );
+      $sheet->setCellValue ( "B".$nocel, $data->no_perjadin );
+      $sheet->setCellValue ( "C".$nocel, $data->tgl_bukti );
+      $sheet->setCellValue ( "D".$nocel, @$dethon->nama);
+      $sheet->setCellValue ( "E".$nocel, @$dethon->kode_honorer);
+      $sheet->setCellValue ( "F".$nocel, $data->maksud_perjadin );
+      $sheet->setCellValue ( "G".$nocel, $data->kd_anggaran );
+      $sheet->setCellValue ( "H".$nocel, $data->jumlah_dibayarkan );
+      $sheet->setCellValue ( "I".$nocel, $data->tujuan );
+      $sheet->setCellValue ( "J".$nocel, $data->tgl_berangkat );
+      $sheet->setCellValue ( "K".$nocel, $data->tgl_kembali );
+      $sheet->setCellValue ( "L".$nocel, $data->lama_hari);
+      $sheet->setCellValue ( "M".$nocel, $data->uang_perhari);
+      $sheet->setCellValue ( "N".$nocel, $data->total_uang_harian );
+      $sheet->setCellValue ( "O".$nocel, $data->biaya_akomodasi_hotel );
+      $sheet->setCellValue ( "P".$nocel, $data->biaya_representasi );
+      $sheet->setCellValue ( "Q".$nocel, $data->biaya_lain );
+      $sheet->setCellValue ( "R".$nocel, '');
+      $sheet->setCellValue ( "S".$nocel, $data->jumlah_biaya );
+      $sheet->setCellValue ( "T".$nocel, $data->nama_hotel );
+      $sheet->setCellValue ( "U".$nocel, $data->tujuan );
+      $sheet->setCellValue ( "V".$nocel, $data->tgl_ta_berangkat);
+      $sheet->setCellValue ( "W".$nocel, $data->pesawat_berangkat);
+      $sheet->setCellValue ( "X".$nocel, $data->no_tiket_berangkat );
+      $sheet->setCellValue ( "Y".$nocel, $data->kode_book_berangkat );
+      $sheet->setCellValue ( "Z".$nocel, $data->harga_berangkat );
+      $sheet->setCellValue ( "AA".$nocel, $data->tgl_ta_kembali);
+      $sheet->setCellValue ( "AB".$nocel, $data->pesawat_kembali);
+      $sheet->setCellValue ( "AC".$nocel, $data->no_tiket_kembali );
+      $sheet->setCellValue ( "AD".$nocel, $data->kode_book_kembali );
+      $sheet->setCellValue ( "AE".$nocel, $data->harga_kembali );
+      $nomor++;
+      $nocel++;
+    }
+    /* end - BLOCK MEMASUKAN DATABASE*/
+
     /* start - BLOCK MEMBUAT LINK DOWNLOAD*/
     header ( 'Content-Type: application/vnd.ms-excel' );
   //namanya adalah keluarga.xls
@@ -309,7 +637,7 @@ function dataexcel_honorer(){
                 // setting web server
     $file = new PHPExcel ();
     $file->getProperties ()->setCreator ( "Goblooge" );
-    $file->getProperties ()->setLastModifiedBy ( "www.simpegbuton.go.id" );
+    $file->getProperties ()->setLastModifiedBy ( "simpedaberkah" );
     $file->getProperties ()->setTitle ( "List Laporan Data Honorer" );
     $file->getProperties ()->setSubject ( "Daftar Honorer" );
     $file->getProperties ()->setDescription ( "Daftar Honorer" );
@@ -325,7 +653,7 @@ function dataexcel_honorer(){
     $sheet->setTitle ( "Daftar Honorer" );
     /*end - BLOCK SETUP SHEET*/
 
-    /*start - BLOCK HEADER*/
+      /*start - BLOCK HEADER*/
     $sheet->setCellValue ( "A1", "No" );
     $sheet->setCellValue ( "B1", "NAMA" );
     $sheet->setCellValue ( "C1", "ALAMAT" );
@@ -345,13 +673,46 @@ function dataexcel_honorer(){
       $sheet->setCellValue ( "B".$nocel, strtoupper($data->nama));
       $sheet->setCellValue ( "C".$nocel, strtoupper($data->alamat) );
       $sheet->setCellValue ( "D".$nocel, strtoupper($data->nomor_sk));
-      $sheet->setCellValue ( "E".$nocel, strtoupper($this->Admin_m->detail_data_order('master_lokasi_kerja','id_lokasi_kerja',$data->id_lokasi_kerja)->lokasi_kerja) );
+      $sheet->setCellValue ( "E".$nocel, strtoupper(@$this->Admin_m->detail_data_order('master_satuan_kerja','id_satuan_kerja',$data->id_lokasi_kerja)->nama_satuan_kerja) );
       $sheet->setCellValue ( "F".$nocel, strtoupper($data->tmt));
       $sheet->setCellValue ( "G".$nocel, strtoupper($data->no_hp) );
       $nomor++;
       $nocel++;
     }
     /* end - BLOCK MEMASUKAN DATABASE*/
+
+      /*start - BLOK AUTOSIZE*/
+  $sheet ->getColumnDimension ( "A" )->setWidth(4);
+  $sheet ->getColumnDimension ( "B" )->setWidth(40);
+  $sheet ->getColumnDimension ( "C" )->setWidth(30);
+  $sheet ->getColumnDimension ( "D" )->setWidth(35);
+  $sheet ->getColumnDimension ( "E" )->setWidth(35);
+  $sheet ->getColumnDimension ( "F" )->setWidth(20);
+  $sheet ->getColumnDimension ( "G" )->setWidth(20);
+  
+/*end - BLOG AUTOSIZE*/
+
+/*start - BLOCK UNTUK BORDER*/
+$thick = array ();
+$thick['borders']=array();
+$thick['borders']['allborders']=array();
+$thick['borders']['allborders']['style']=PHPExcel_Style_Border::BORDER_THICK ;
+$sheet->getStyle ( 'A1:G1' )->applyFromArray ($thick);
+
+$thin = array ();
+$thin['borders']=array();
+$thin['borders']['allborders']=array();
+$thin['borders']['allborders']['style']=PHPExcel_Style_Border::BORDER_THIN ;
+$sheet->getStyle ( 'A1:G12' )->applyFromArray ($thin);
+/*end - BLOCK UNTUK BORDER*/
+
+/*start - BLOCK UNTUK BACKGROUND*/
+$backgroound['fill']=array();
+$backgroound['fill']['type']=PHPExcel_Style_Fill::FILL_SOLID;
+$backgroound['fill']['color']=array();
+$backgroound['fill']['color']['rgb']='99FFFF';
+$sheet->getStyle ( 'A1:G1' )->applyFromArray ($backgroound);
+/*end - BLOCK UNTUK BACKGROUND*/
 
     /* start - BLOCK MEMBUAT LINK DOWNLOAD*/
     header ( 'Content-Type: application/vnd.ms-excel' );

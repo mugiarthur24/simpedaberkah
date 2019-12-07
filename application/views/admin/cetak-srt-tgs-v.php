@@ -195,12 +195,12 @@
 				<tr>
 					<td>Dikeluarkan di</td>
 					<td>:</td>
-					<td><b><?php echo ucwords($infopt->kontak_3); ?></b></td>
+					<td><b><?php echo ucwords($hasil2->tempat_berangkat); ?></b></td>
 				</tr>
 				<tr>
 					<td>Tanggal</td>
 					<td>:</td>
-					<td><?php echo date('d F Y'); ?></td>
+					<td><?php echo date('d F Y', strtotime($hasil2->tgl_sppd)) ; ?></td>
 				</tr>
 			</table>
 			<div style="width: 100%;font-size: 11px; margin-top: 14px;" class="text-center">
@@ -391,12 +391,12 @@
 				<tr>
 					<td>Dikeluarkan di</td>
 					<td>:</td>
-					<td><b><?php echo ucwords($infopt->kontak_3); ?></b></td>
+					<td><b><?php echo ucwords($hasil2->tempat_berangkat); ?></b></td>
 				</tr>
 				<tr>
 					<td>Tanggal</td>
 					<td>:</td>
-					<td><?php echo date('d F Y'); ?></td>
+					<td><?php echo date('d F Y', strtotime($hasil2->tgl_sppd)) ; ?> <?php echo date('d F Y', strtotime($hasil2->tgl_sppd)) ; ?></td>
 				</tr>
 			</table>
 			<div style="width: 100%;font-size: 11px; margin-top: 14px;" class="text-center">

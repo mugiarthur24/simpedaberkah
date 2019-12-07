@@ -6,6 +6,7 @@ class Dashboard extends CI_Controller {
         parent::__construct();
         $this->load->model('admin/Admin_m');
          $this->load->model('admin/Mread');
+         $this->load->model('admin/Pegawai_m');
     }
     public function index($offset=0){
         if ($this->ion_auth->logged_in()) {

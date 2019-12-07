@@ -4,11 +4,13 @@
 			<h4>Riwayat Jabatan</h4>
 		</div>
 		<div class="media-right">
-			<button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#addrjabatan"><i class="ti ti-plus"></i> Tambah Data Riwayat Jabatan</button>
+			<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addrjabatan"><i class="fas fa-plus"></i> Tambah Data Riwayat Jabatan</button>
 		</div>
 	</div>
 	<hr/>
-	<table class="w-100" border="1" style="font-size: 13px;">
+	<div class="card-body">
+	<div class="table-responsive">
+		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 		<thead>
 			<tr class="table-info">
 				<td class="p-1 text-center">No</td>
@@ -38,10 +40,10 @@
 						<!-- <td class="jrktbl"><?php echo $data->tmt_pelantikan_rj; ?></td> -->
 						<td class="p-1"><?php echo $this->Admin_m->detail_data_order('master_satuan_kerja','id_satuan_kerja',$data->id_satuan_kerja)->nama_satuan_kerja; ?></td>				
 						<td class="p-1">
-							<a href="<?php echo base_url('index.php/admin/pegawai/edit_rjabatan/'.$hasil->id_pegawai.'/'.$data->id_riwayat_jabatan) ?>"><i class="ti ti-pencil text-success" rel="tooltip" title="Edit"></i></a>
+							<a href="<?php echo base_url('index.php/admin/pegawai/edit_rjabatan/'.$hasil->id_pegawai.'/'.$data->id_riwayat_jabatan) ?>">Edit</a>
 						</td>
 						<td class="p-1">
-							<a href="<?php echo base_url('index.php/admin/pegawai/delete_rjabatan/'.$hasil->id_pegawai.'/'.$data->id_riwayat_jabatan) ?>"><i class="ti ti-trash text-danger" rel="tooltip" title="Hapus"></i></a>
+							<a href="<?php echo base_url('index.php/admin/pegawai/delete_rjabatan/'.$hasil->id_pegawai.'/'.$data->id_riwayat_jabatan) ?>" class="text-danger">Hapus</i></a>
 						</td>
 					</tr>
 					<?php $no++ ?>
@@ -53,6 +55,8 @@
 			<?php endif ?>
 		</tbody>
 	</table>
+	</div>
+</div>
 	<!-- Modal -->
 	<div class="modal fade" id="addrjabatan" tabindex="-1" role="dialog" aria-labelledby="addrjabatann" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
@@ -152,3 +156,4 @@
 			</div>
 		</div>
 	</div >
+</div>

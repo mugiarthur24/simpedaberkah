@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title><?php echo $title; ?></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<!-- <link rel="stylesheet" href="<?php echo base_url('asset/css/custom.css'); ?>"> -->
 	<link rel="stylesheet" href="<?php echo base_url('asset/css/font-awesome.min.css'); ?>">
@@ -52,7 +53,7 @@
 				<div class="row">
 					<div class="col">
 						<div class="card mb-4">
-							<div class="card-body text-success">Jumlah Pegawai Kabupaten Buton Tengah : <?php echo $this->Pegawai_m->jml() ?> Orang</div>
+							<div class="card-body text-success">Jumlah Pegawai : <?php echo $this->Pegawai_m->jml() ?> Orang</div>
 						</div>
 					</div>
 				</div>

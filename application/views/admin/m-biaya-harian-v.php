@@ -1,30 +1,34 @@
 <div style="margin-top: 14px; background-color: white;padding: 30px">
 	<div class="media">
-	<div class="media-body">
+		<div class="media-body">
 			<h4>Data Master Biaya Harian</h4>
 		</div>
 		<div class="media-right">
-			<button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#addmasterbiayaharian"><i class="ti ti-plus"></i> Tambah Data </button>
+			<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addmasterbiayaharian"><i class="ti ti-plus"></i> Tambah Data </button>
 		</div>
 	</div>
 	<hr/>
-			<table class="w-100" border="1">
-				<tr class="table-info">
-					<td class="p-1 text-center">No</td>
-					<td class="p-1 text-center">Provinsi</td>
-					<td class="p-1 text-center">Jabatan</td>
-					<td class="p-1 text-center">Uang Harian</td>
-					<td class="p-1 text-center" colspan="2">Action</td>
-				</tr>
+	<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+				<thead>
+					<tr class="table-info">
+						<td class="p-1 text-center">No</td>
+						<td class="p-1 text-center">Provinsi</td>
+						<td class="p-1 text-center">Jabatan</td>
+						<td class="p-1 text-center">Uang Harian</td>
+						<td class="p-1 text-center" colspan="2">Action</td>
+					</tr>
+				</thead>
 				<?php $no=1 ?>
 				<?php foreach ($hasil as $data): ?>
 					<tr>
-						<td class="p-1 text-center"><?php echo $no; ?></td>
-						<td class="p-1"><?php echo $this->Admin_m->detail_data_order('master_provinsi','id_provinsi',$data->id_provinsi)->nm_provinsi; ?></td>
-						<td class="p-1"><?php echo $this->Admin_m->detail_data_order('master_jabatan','id_jabatan',$data->id_jabatan)->nama_jabatan; ?></td>
-						<td class="p-1 text-right"><?php echo $data->biaya; ?></td>
-						<td class="p-1 text-center"><a href="<?php echo base_url('index.php/admin/master/edit_biaya_harian/'.$data->id_biaya_harian) ?>"><i class="ti ti-pencil text-info" rel="tooltip" title="Edit"></i></a></td>
-						<td class="p-1 text-center"><a href="<?php echo base_url('index.php/admin/master/delete/master_biaya_harian'.$data->id_biaya_harian) ?>"><i class="ti ti-trash text-danger" rel="tooltip" title="Hapus"></i></a></td>
+						<td class="p-1 text-center" style="vertical-align: middle;"><?php echo $no; ?></td>
+						<td class="p-1" style="vertical-align: middle;"><?php echo $this->Admin_m->detail_data_order('master_provinsi','id_provinsi',$data->id_provinsi)->nm_provinsi; ?></td>
+						<td class="p-1" style="vertical-align: middle;"><?php echo $this->Admin_m->detail_data_order('master_jabatan','id_jabatan',$data->id_jabatan)->nama_jabatan; ?></td>
+						<td class="p-1 text-right" style="vertical-align: middle;"><?php echo 'Rp. '.number_format($data->biaya); ?></td>
+						<td class="p-1 text-center" style="vertical-align: middle;"><a href="<?php echo base_url('index.php/admin/master/edit_biaya_harian/'.$data->id_biaya_harian) ?>"><i class="fas fa-edit"></i> Edit</a></td>
+						<td class="p-1 text-center" style="vertical-align: middle;"><a href="<?php echo base_url('index.php/admin/master/delete/master_biaya_harian'.$data->id_biaya_harian) ?>" class="text-danger"><i class="fas fa-trash-alt"></i> Hapus</a></td>
 					</tr>
 					<?php $no++ ?>
 				<?php endforeach ?>
@@ -32,7 +36,8 @@
 		</div>
 	</div>
 </div>
-<!-- Modal -->
+
+	<!-- Modal -->
 	<div class="modal fade" id="addmasterbiayaharian" tabindex="-1" role="dialog" aria-labelledby="addmasterbiayaharian" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
@@ -65,16 +70,16 @@
 							</div>
 						</div>
 						<div class="col-md-12">
-								<div class="form-group">
-									<label class="text-info" for="biaya">Biaya</label>
-									<input type="text" class="form-control" id="biaya" name="biaya" placeholder="Biaya" >
-								</div>
+							<div class="form-group">
+								<label class="text-info" for="biaya">Biaya</label>
+								<input type="text" class="form-control" id="biaya" name="biaya" placeholder="Biaya" >
+							</div>
 						</div>
 					</div>
-				<div class="modal-footer">
-					<button type="submit" name="submit" value="submit" class="btn btn-success">Simpan</button>
-				</div>
-			</form>
+					<div class="modal-footer">
+						<button type="submit" name="submit" value="submit" class="btn btn-success">Simpan</button>
+					</div>
+				</form>
+			</div>
 		</div>
-	</div>
 	</div>

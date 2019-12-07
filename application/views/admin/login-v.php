@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
 	<title><?php echo $title; ?></title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-	<link rel="stylesheet" href="<?php echo base_url('asset/css/font-awesome.css'); ?>" type="text/css" />
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-	<!-- css custom -->
-	<link rel="stylesheet" href="<?php echo base_url('asset/css/custom.css'); ?>" type="text/css">
+
+	<!-- Custom fonts for this template-->
+	<link href="<?php echo base_url('asset/vendor/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+	<!-- Custom styles for this template-->
+	<link href="<?php echo base_url('asset/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
+
 </head>
-<body class="bglog">
-	<div class="containerx">
+
+<body class="bg-gradient-primary">
+
+	<div class="container">
 		<?php if ($this->session->flashdata('message')): ?>
 			<div class="row">
 				<div class="alert alert-danger alert-dismissible tengah" role="alert" style="margin-bottom: 7px;">
@@ -20,44 +31,75 @@
 				</div>
 			</div>
 		<?php endif ;?>
-		<div class="row" style="background-color: white; margin-top: 60px;"> 
-			<div class="col">
-				<div class="login-box ">
-					<!-- <h1 class="text-center border border-top-0 border-left-0 border-right-0 border-secondary bts-bwh">LOGIN</h1> -->
-					<div class="text-center">
-						<img src="<?php echo base_url('asset/img/lembaga/'.$infopt->logo_pt) ?>" width="50px">
-					</div>
-					<div class="text-center">
-						<h4><?php echo $infopt->nama_info_pt; ?></h4>
-					</div>
-					<form action="<?php echo base_url('index.php/login/proses_login/') ?>" method="post">
-						<div class="form-group">
-							<label for="username">Username</label>
-							<input type="text" name="username" class="form-control form-control-lg border border-info" id="username" aria-describedby="userhelp" placeholder="Masukan Username Anda">
-							<small id="userhelp" class="form-text text-muted">Kami tidak pernah menampilkan username anda ke pihak lainnya.</small>
+
+		<!-- Outer Row -->
+		<div class="row justify-content-center">
+
+			<div class="col-xl-10 col-lg-12 col-md-9">
+
+				<div class="card o-hidden border-0 shadow-lg my-5">
+					<div class="card-body p-0">
+						<!-- Nested Row within Card Body -->
+						<div class="row">
+							<div class="col-lg-6 d-none d-lg-block bg-login-image" style="background-image: url(<?php echo base_url('asset/img/lembaga/tes.jpg'); ?>);"></div>
+							<div class="col-lg-6">
+								<div class="p-5">
+									<div class="text-center">
+										<h1 class="h4 text-gray-900 mb-4">Login</h1>
+									</div>
+									<form action="<?php echo base_url('index.php/login/proses_login/') ?>" method="post" class="user">
+										<div class="form-group">
+											<input type="text" name="username" class="form-control form-control-user" id="username" aria-describedby="userhelp"placeholder="Masukan Username Anda">
+										</div>
+										<div class="form-group">
+											<input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword1" placeholder="Password">
+										</div>
+										<div class="form-group">
+											<div class="custom-control custom-checkbox small">
+												<input type="checkbox" class="custom-control-input" id="customCheck">
+												<label class="custom-control-label" for="customCheck">Remember Me</label>
+											</div>
+										</div>
+										<button type="submit" class="btn btn-primary btn-user btn-block">
+											Login
+										</button>
+										<hr>
+										<a href="index.html" class="btn btn-google btn-user btn-block">
+											<i class="fab fa-google fa-fw"></i> Login with Google
+										</a>
+										<a href="index.html" class="btn btn-facebook btn-user btn-block">
+											<i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+										</a>
+									</form>
+									<hr>
+									<div class="text-center">
+										<a class="small" href="forgot-password.html">Forgot Password?</a>
+									</div>
+									<div class="text-center">
+										<a class="small" href="register.html">Create an Account!</a>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Password</label>
-							<input type="password" name="password" class="form-control form-control-lg border border-info" id="exampleInputPassword1" placeholder="Password">
-							<small id="emailHelp" class="form-text text-muted">Password minimal 8 karakter</small>
-						</div>
-						<button type="submit" style="width:100%;" class="btn btn-secondary">Masuk</button>
-					</form>
-					<div class="row bts-ats">
-						<div class="col">Lupa Password</div>
-						<div class="col" style="text-align: right">Daftar Sekarang</div>
-					</div>
-					<div class="text-center">
-						<p class="text-secondary bts-ats">Copy Right <?php echo @$brand.' '.date('Y'); ?></p>
 					</div>
 				</div>
+
 			</div>
-			<div class="col">
-				<div class="login-box text-center" style="background-image: url(<?php echo base_url('asset/img/lembaga/tes.jpg'); ?>);">
-					<h4 class="text-light text-left" style="margin-top: 150px;"><?php echo $infopt->slogan; ?></h4>
-				</div>
-			</div>
+
 		</div>
+
 	</div>
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="<?php echo base_url('asset/vendor/jquery/jquery.min.js'); ?>"></script>
+	<script src="<?php echo base_url('asset/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="<?php echo base_url('asset/vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="<?php echo base_url('asset/js/sb-admin-2.min.js'); ?>"></script>
+
 </body>
+
 </html>

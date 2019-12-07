@@ -1,11 +1,11 @@
 <div style="margin-top: 14px; background-color: white;padding: 30px">
 <form action="<?php echo base_url('index.php/admin/honorer/proses_edit_sppd_honorer') ?>" method="post">
-	<input type="hidden" name="id_sppd_ld" value="<?php echo $detail->id_sppd_ld ?>">
-	<input type="hidden" name="id_honorer" value="<?php echo $reshonor->id_honorer ?>">
-	<input type="hidden" name="id_sppd_honorer" value="<?php echo $detsppdhon->id_sppd_honorer ?>">
-	<input type="hidden" name="tahun" value="<?php echo $detail->tahun ?>">
+	<!-- <input type="hidden" name="id_sppd_ld" value="<?php echo $detail->id_sppd_ld ?>"> -->
+	<!-- <input type="hidden" name="id_honorer" value="<?php echo $reshonor->id_honorer ?>"> -->
+	<!-- <input type="hidden" name="id_sppd_honorer" value="<?php echo $detsppdhon->id_sppd_honorer ?>"> -->
+	<!-- <input type="hidden" name="tahun" value="<?php echo $detail->tahun ?>"> -->
 	<div style="background-color: white;padding: 30px">
-		<div class="text-info">Edit SPPD</div><hr/>
+		<div class="text-info">Edit SPD</div><hr/>
 		Detail Honorer<hr/>
 		<div class="row">
 			<div class="col">
@@ -26,53 +26,12 @@
 		Detail Pegawai<hr/>
 		<div class="row">
 			<div class="col">
-				<div class="form-group">
-					<label>Nama Pegawai</label>
-					<div class="form-control bg-light"><?php echo $hasil->nama_pegawai ?></div>
-					<input type="hidden" name="id_pegawai" value="<?php echo $hasil->id_pegawai ?>">
-					<small class="form-text text-muted">Gunakan Huruf melakukan pengisian ini</small>
-				</div>
-			</div>
-			<div class="col">
-				<div class="form-group">
-					<label>NIP</label>
-					<div class="form-control bg-light"><?php echo $hasil->nip ?></div>
-					<small class="form-text text-muted">hanya boleh menggunakan angka</small>
-				</div>
-			</div>
-			<div class="col">
 			<div class="form-group">
 				<label>JENIS PERJALANAN DINAS</label>
 				<input type="hidden" name="id_jenis_perjadin" value="<?php echo @$detail->id_jenis_perjadin ?>">
 				<div class="form-control bg-light"><?php echo @$this->Admin_m->detail_data_order('master_jenis_perjadin','id_jenis_perjadin',$detail->id_jenis_perjadin)->jenis_perjadin; ?></div>
 			</div>
 		</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<div class="form-group">
-					<label>Golongan</label>
-					<div class="form-control bg-light"><?php echo $dtgolongan->golongan ?></div>
-					<input type="hidden" name="id_golongan" value="<?php echo $dtgolongan->id_golongan ?>">
-					<small class="form-text text-muted">Gunakan Huruf melakukan pengisian ini</small>
-				</div>
-			</div>	
-			<div class="col">
-				<div class="form-group">
-					<label>Pangkat</label>
-					<div class="form-control bg-light"><?php echo $dtpangkat->nm_pangkat ?></div>
-					<input type="hidden" name="id_pangkat" value="<?php echo $dtpangkat->id_pangkat ?>">
-					<small class="form-text text-muted">Gunakan Huruf melakukan pengisian ini</small>
-				</div>
-			</div>	
-			<div class="col">
-				<div class="form-group">
-					<label>Eselon</label>
-					<div class="form-control bg-light"><?php echo $dteselon->nama_eselon ?></div>
-					<input type="hidden" name="id_eselon" value="<?php echo $dteselon->id_eselon ?>">
-					<small class="form-text text-muted">Gunakan Huruf melakukan pengisian ini</small>
-				</div>
-			</div>	
 		</div>
 	</div>
 	<div style="margin-top: 14px; background-color: white;padding: 30px">
@@ -265,13 +224,6 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col">
-			<div class="form-group">
-				<label>Biaya Riil</label>
-				<input type="text" class="form-control" name="biaya_riil" id="byril" placeholder="Masukan Biaya Biaya Rill" value="<?php echo $detail->biaya_riil ?>">
-				<small class="form-text text-muted">Hanya Dapat Menggunakan Angka</small>
-			</div>
-		</div>
 		<div class="col">
 			<div class="form-group">
 				<label>Biaya Pergi (Keberangkatan)</label>
